@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.accp.dao.lzh.logisticsDao">
+	<select id="querylogisticsInit" resultType="com.accp.vo.lzh.logisticsVO">
+		SELECT `orderID` ,`title`,`orderTime`,`price`,`delivery`,`auditStatus`
+		FROM `logistics` WHERE `userID`=#{userID}
+	</select>
+	<select id="querylogisticsLike" resultType="com.accp.vo.lzh.logisticsVO">
+		SELECT `orderID` ,`title`,`orderTime`,`price`,`delivery`,`auditStatus` 
+		FROM `logistics` WHERE 
+		`userID`=#{userID} AND `orderID` LIKE '%${like}%' OR `title` LIKE '%${like}%' 
+	</select>
+	<select id="querylogisticsDetail" resultType="com.accp.pojo.Logistics">
+		SELECT * FROM `logistics` WHERE `userID`=#{userID} AND `orderID`='${orderID}'
+	</select>
+</mapper>
