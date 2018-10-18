@@ -45,8 +45,12 @@ public class logisticsAction {
 	public List<Sharea> getChinaCity(@PathVariable String state){
 		return biz.getChinaCity(state);
 	}
-	@GetMapping("getArea/{city}")
-	public List<Sharea> getArea(@PathVariable String city){
-		return biz.getArea(city);
+	@GetMapping("getChinaArea/{city}")
+	public List<Sharea> getChinaArea(@PathVariable String city){
+		return biz.getChinaArea(city);
+	}
+	@GetMapping("getKoreaArea/{city}")
+	public List<Sharea> getKoreaArea(@PathVariable String city){
+		return biz.getKoreaArea(city);
 	}
 }

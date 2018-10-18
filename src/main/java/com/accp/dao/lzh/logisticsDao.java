@@ -18,6 +18,8 @@ public interface logisticsDao {
 	public List<Sharea> queryKoreaCity(@Param("state")String state);
 	//查询中国》省
 	public List<Sharea> queryChinaCity(@Param("state")String state);
-	//查询省————》市
-	public List<Sharea> queryArea(@Param("city") String city);
+	//查询省————》市(中国)
+	public List<Sharea> queryChinaArea(@Param("city") String city);
+	//查询省————》市(韩国)
+	public List<Sharea> queryKoreaArea(@Param("city") String city);
 }

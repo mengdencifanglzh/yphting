@@ -47,7 +47,10 @@ public class logisticsBiz {
 	public List<Sharea> getChinaCity(String state){
 		return dao.queryChinaCity(state);
 	}
-	public List<Sharea> getArea(String city){
-		return dao.queryArea(city);
+	public List<Sharea> getChinaArea(String city){
+		return dao.queryChinaArea(city);
+	}
+	public List<Sharea> getKoreaArea(String city){
+		return dao.queryKoreaArea(city);
 	}
 }

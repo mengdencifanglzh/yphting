@@ -184,8 +184,8 @@ $(function(){
 				<dd class="c_4 f14">
 					<select class="sel_f sel_f2 sel_b2" name="state" onChange="setarea(this.value)">
 					</select>
-					<select class="sel_f sel_f2 sel_b2" name="city" id="areaid2" onChange="setarea(this.value)">
-						
+					<select class="sel_f sel_f2 sel_b2" name="city" id="areaid2" onChange="bindsCity(this.value)">
+						<option value=''>请选择</option>
 					</select>
 					<select class="sel_f sel_f2 sel_b2 validate[required]" id="areaid3" name="area">
 						<option value=''>请选择</option>
@@ -208,12 +208,12 @@ $(function(){
 			<dl class="info_form_dl">
 				<dt>国内收货信息</dt>
 				<dd class="c_4 f14">
-					<select class="sel_f sel_f2 sel_b2" name="state" onChange="setarea(this.value)">
-						<option value="1">中国</option><option value="2">韩国</option>					</select>
-					<select class="sel_f sel_f2 sel_b2" name="city" id="shareaid2" onChange="setarea(this.value)">
-						<option value="">请选择</option>
+					<select class="sel_f sel_f2 sel_b2" name="state2" onChange="setarea2(this.value)">
+						</select>
+					<select class="sel_f sel_f2 sel_b2" name="city2" id="shareaid2" onChange="bindsCity2(this.value)">
+						<option value=''>请选择</option>
 					</select>
-					<select class="sel_f sel_f2 sel_b2 validate[required]" id="shareaid3" name="shareaid3">
+					<select class="sel_f sel_f2 sel_b2 validate[required]" id="shareaid3" name="area2">
 						<option value="">请选择</option>
 					</select>
 					<input type="text" name="shaddress" class="input_c inf_inc validate[required]" />
@@ -413,72 +413,5 @@ function removepic(obj){
 #pics img{ margin-right: 10px; }
 </style>
 </body>
-<script type="text/javascript">
-	initState();
-	function initState(){
-		$.ajax("/lzh/api/getShareaState",{
-			type:"GET",
-			dataType:"json",
-			success:function(data){
-				$.each(data,function(i,obj){
-					$("[name=state]").append("<option value="+obj.name+">"+obj.mergername+"</option>");
-				});
-			}
-		});
-	}
-
-	setTimeout(function(){initChina()},50)
-	function initChina(){
-		var state=$("[name=state]").val();
-			getChina(state);
-	}
-	function getChina(state){
-		$.ajax("/lzh/api/getChinaCity/"+state,{
-			type:"GET",
-			dataType:"json",
-			success:function(data){
-				console.info(data);
-				$("[name=city]").html("");$("[name=city]").append("<option value=''>请选择</option>");
-				$.each(data,function(i,obj){
-					$("[name=city]").append("<option value="+obj.name+">"+obj.mergername+"</option>");
-				});
-			}
-		});
-	}
-	function setarea(state){
-		if (state=="中国") {
-			initChina(state);
-		}else if(state=="韩国"){
-			getKorea(state);
-		}else{
-			getCity(state);
-		}
-	}
-	function getCity(city){
-		$.ajax("/lzh/api/getArea/"+city,{
-			type:"GET",
-			dataType:"json",
-			success:function(data){
-				console.info(data);
-				$("[name=area]").html("");$("[name=area]").append("<option value=''>请选择</option>");
-				$.each(data,function(i,obj){
-					$("[name=area]").append("<option value="+obj.name+">"+obj.mergername+"</option>");
-				});
-			}
-		});
-	}
-	function getKorea(state){
-		$.ajax("/lzh/api/getKoreaCity/"+state,{
-			type:"GET",
-			dataType:"json",
-			success:function(data){
-				console.info(data);
-				$("[name=city]").html("");$("[name=city]").append("<option value=''>请选择</option>");
-				$.each(data,function(i,obj){
-					$("[name=city]").append("<option value="+obj.name+">"+obj.mergername+"</option>");
-				});
-			}
-		});
-	}
-</script>
+<script type="text/javascript" src="../js/lzh/addLogistics.js"></script>
 </html>

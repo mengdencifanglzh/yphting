@@ -26,7 +26,10 @@
 	<select id="queryChinaCity" resultType="Sharea">
 		SELECT * FROM `sharea` WHERE `level`=1 AND `pid` IN(SELECT `areaID` FROM `sharea` WHERE `name`='${state}')
 	</select>
-	<select id="queryArea" resultType="Sharea">
+	<select id="queryChinaArea" resultType="Sharea">
 		SELECT * FROM `sharea` WHERE `level`=2 AND `pid` IN(SELECT `areaID` FROM `sharea` WHERE `name`='${city}')
+	</select>
+	<select id="queryKoreaArea" resultType="Sharea">
+		SELECT * FROM `sharea` WHERE `level`=3 AND `pid` IN(SELECT `areaID` FROM `sharea` WHERE `name`='${city}')
 	</select>
 </mapper>
