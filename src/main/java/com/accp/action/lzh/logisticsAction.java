@@ -1,5 +1,7 @@
 package com.accp.action.lzh;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.accp.biz.lzh.logisticsBiz;
 import com.accp.pojo.Logistics;
+import com.accp.pojo.Sharea;
 import com.accp.vo.lzh.logisticsVO;
 import com.alibaba.fastjson.JSON;
 import com.github.pagehelper.PageInfo;
@@ -29,5 +32,21 @@ public class logisticsAction {
 	@GetMapping("getlogisticsDetail/{userID}/{orderID}")
 	public Logistics getlogisticsDetail(@PathVariable Integer userID,@PathVariable String orderID) {
 		return biz.getlogisticsDetail(userID, orderID);
+	}
+	@GetMapping("getShareaState")
+	public List<Sharea> getShareaState(){
+		return biz.getShareaState();
+	}
+	@GetMapping("getKoreaCity/{state}")
+	public List<Sharea> getKoreaCity(@PathVariable String state){
+		return biz.getKoreaCity(state);
+	}
+	@GetMapping("getChinaCity/{state}")
+	public List<Sharea> getChinaCity(@PathVariable String state){
+		return biz.getChinaCity(state);
+	}
+	@GetMapping("getArea/{city}")
+	public List<Sharea> getArea(@PathVariable String city){
+		return biz.getArea(city);
 	}
 }

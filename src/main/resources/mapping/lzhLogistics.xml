@@ -17,4 +17,16 @@
 	<select id="querylogisticsDetail" resultType="com.accp.pojo.Logistics">
 		SELECT * FROM `logistics` WHERE `userID`=#{userID} AND `orderID`='${orderID}'
 	</select>
+	<select id="queryShareaState" resultType="Sharea">
+		SELECT * FROM `sharea` WHERE `level`=0
+	</select>
+	<select id="queryKoreaCity" resultType="Sharea">
+		SELECT * FROM `sharea` WHERE `level`=2 AND `pid` IN(SELECT `areaID` FROM `sharea` WHERE `name`='${state}')
+	</select>
+	<select id="queryChinaCity" resultType="Sharea">
+		SELECT * FROM `sharea` WHERE `level`=1 AND `pid` IN(SELECT `areaID` FROM `sharea` WHERE `name`='${state}')
+	</select>
+	<select id="queryArea" resultType="Sharea">
+		SELECT * FROM `sharea` WHERE `level`=2 AND `pid` IN(SELECT `areaID` FROM `sharea` WHERE `name`='${city}')
+	</select>
 </mapper>

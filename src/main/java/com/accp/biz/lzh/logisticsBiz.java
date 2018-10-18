@@ -1,5 +1,7 @@
 package com.accp.biz.lzh;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
@@ -8,8 +10,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.accp.dao.lzh.logisticsDao;
 import com.accp.pojo.Logistics;
+import com.accp.pojo.Sharea;
 import com.accp.vo.lzh.logisticsVO;
-import com.alibaba.fastjson.JSON;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 
@@ -35,5 +37,17 @@ public class logisticsBiz {
 	}
 	public Logistics getlogisticsDetail(Integer userID,String orderID) {
 		return dao.querylogisticsDetail(userID, orderID);
+	}
+	public List<Sharea> getShareaState(){
+		return dao.queryShareaState();
+	}
+	public List<Sharea> getKoreaCity(String state){
+		return dao.queryKoreaCity(state);
+	}
+	public List<Sharea> getChinaCity(String state){
+		return dao.queryChinaCity(state);
+	}
+	public List<Sharea> getArea(String city){
+		return dao.queryArea(city);
 	}
 }

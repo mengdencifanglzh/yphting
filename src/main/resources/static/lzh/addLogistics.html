@@ -114,27 +114,6 @@ jQuery(document).ready(function(){
 </div>
 <!--header end-->
 
-<script language="javascript">
-function ordercancel(_oid){
-    location.href = "/index.php?m=Home&c=Member&a=setzt&oid="+_oid+'&act=cancel&continue=aHR0cDovL3lwaHRpbmcuemdseGtqLmNvbS9pbmRleC5waHAvSG9tZS9NZW1iZXIvbG9naXN0aWNzL2FjdC9hZGQuaHRtbA';
-}
-function ordersuccess(_oid){
-    location.href = "/index.php?m=Home&c=Member&a=setzt&oid="+_oid+'&act=success&continue=aHR0cDovL3lwaHRpbmcuemdseGtqLmNvbS9pbmRleC5waHAvSG9tZS9NZW1iZXIvbG9naXN0aWNzL2FjdC9hZGQuaHRtbA';
-}
-function orderaccept(_oid){
-    location.href = "/index.php?m=Home&c=Seller&a=orderzt&oid="+_oid+'&act=accept&continue=aHR0cDovL3lwaHRpbmcuemdseGtqLmNvbS9pbmRleC5waHAvSG9tZS9NZW1iZXIvbG9naXN0aWNzL2FjdC9hZGQuaHRtbA';
-}
-function ordercancelSeller(_oid){
-    location.href = "/index.php?m=Home&c=Seller&a=orderzt&oid="+_oid+'&act=cancel&continue=aHR0cDovL3lwaHRpbmcuemdseGtqLmNvbS9pbmRleC5waHAvSG9tZS9NZW1iZXIvbG9naXN0aWNzL2FjdC9hZGQuaHRtbA';
-}
-function orderservice(_oid){
-    location.href = "/index.php?m=Home&c=Seller&a=orderzt&oid="+_oid+'&act=submit&continue=aHR0cDovL3lwaHRpbmcuemdseGtqLmNvbS9pbmRleC5waHAvSG9tZS9NZW1iZXIvbG9naXN0aWNzL2FjdC9hZGQuaHRtbA';
-}
-function orderShou(_oid){
-    location.href = "/index.php?m=Home&c=Seller&a=orderzt&oid="+_oid+'&act=Shou&continue=aHR0cDovL3lwaHRpbmcuemdseGtqLmNvbS9pbmRleC5waHAvSG9tZS9NZW1iZXIvbG9naXN0aWNzL2FjdC9hZGQuaHRtbA';
-}
-</script>
-
 <a href="/index.php/Home/About/help.html" class="zy_box">预定流程指引</a>
 
 <div class="bg_c4 pt1">
@@ -203,13 +182,13 @@ $(function(){
 			<dl class="info_form_dl">
 				<dt>发货信息</dt>
 				<dd class="c_4 f14">
-					<select class="sel_f sel_f2 sel_b2" name="areaid1" onChange="setarea(this.value,'areaid2')">
-						<option value="399">中国</option><option value="400">韩国</option><option value="1023">测试地址</option>					</select>
-					<select class="sel_f sel_f2 sel_b2" name="areaid2" id="areaid2" onChange="setarea(this.value,'areaid3')">
-						<option value="">请选择</option>
-						<option value="1">北京市</option><option value="2">上海市</option><option value="3">天津市</option><option value="4">重庆市</option><option value="5">河北市</option><option value="6">山西</option><option value="7">内蒙古</option><option value="8">辽宁</option><option value="9">吉林</option><option value="10">黑龙江</option><option value="11">江苏</option><option value="12">浙江</option><option value="13">安徽</option><option value="14">福建</option><option value="15">江西</option><option value="16">山东</option><option value="17">河南</option><option value="18">湖北</option><option value="19">湖南</option><option value="20">广东</option><option value="21">广西</option><option value="22">海南</option><option value="23">四川</option><option value="24">贵州</option><option value="25">云南</option><option value="26">西藏</option><option value="27">陕西</option><option value="28">甘肃</option><option value="29">青海</option><option value="30">宁夏</option><option value="31">新疆</option><option value="32">台湾</option><option value="33">香港</option><option value="34">澳门</option><option value="577"></option><option value="1011"></option><option value="1018"></option><option value="1022">测试地址1</option>					</select>
-					<select class="sel_f sel_f2 sel_b2 validate[required]" id="areaid3" name="areaid3">
-						<option value="">请选择</option>
+					<select class="sel_f sel_f2 sel_b2" name="state" onChange="setarea(this.value)">
+					</select>
+					<select class="sel_f sel_f2 sel_b2" name="city" id="areaid2" onChange="setarea(this.value)">
+						
+					</select>
+					<select class="sel_f sel_f2 sel_b2 validate[required]" id="areaid3" name="area">
+						<option value=''>请选择</option>
 					</select>
 					<input type="text" name="address" class="input_c inf_inc validate[required]" />
 				</dd>
@@ -229,11 +208,11 @@ $(function(){
 			<dl class="info_form_dl">
 				<dt>国内收货信息</dt>
 				<dd class="c_4 f14">
-					<select class="sel_f sel_f2 sel_b2" name="shareaid1" onChange="setarea(this.value,'shareaid2')">
-						<option value="399">中国</option><option value="400">韩国</option><option value="1023">测试地址</option>					</select>
-					<select class="sel_f sel_f2 sel_b2" name="shareaid2" id="shareaid2" onChange="setarea(this.value,'shareaid3')">
+					<select class="sel_f sel_f2 sel_b2" name="state" onChange="setarea(this.value)">
+						<option value="1">中国</option><option value="2">韩国</option>					</select>
+					<select class="sel_f sel_f2 sel_b2" name="city" id="shareaid2" onChange="setarea(this.value)">
 						<option value="">请选择</option>
-						<option value="1">北京市</option><option value="2">上海市</option><option value="3">天津市</option><option value="4">重庆市</option><option value="5">河北市</option><option value="6">山西</option><option value="7">内蒙古</option><option value="8">辽宁</option><option value="9">吉林</option><option value="10">黑龙江</option><option value="11">江苏</option><option value="12">浙江</option><option value="13">安徽</option><option value="14">福建</option><option value="15">江西</option><option value="16">山东</option><option value="17">河南</option><option value="18">湖北</option><option value="19">湖南</option><option value="20">广东</option><option value="21">广西</option><option value="22">海南</option><option value="23">四川</option><option value="24">贵州</option><option value="25">云南</option><option value="26">西藏</option><option value="27">陕西</option><option value="28">甘肃</option><option value="29">青海</option><option value="30">宁夏</option><option value="31">新疆</option><option value="32">台湾</option><option value="33">香港</option><option value="34">澳门</option><option value="577"></option><option value="1011"></option><option value="1018"></option><option value="1022">测试地址1</option>					</select>
+					</select>
 					<select class="sel_f sel_f2 sel_b2 validate[required]" id="shareaid3" name="shareaid3">
 						<option value="">请选择</option>
 					</select>
@@ -428,9 +407,78 @@ new AjaxUpload(imgUploadBtn,{
 function removepic(obj){
 	$(obj).parent().remove();
 }
+
 </script>
 <style>
 #pics img{ margin-right: 10px; }
 </style>
 </body>
+<script type="text/javascript">
+	initState();
+	function initState(){
+		$.ajax("/lzh/api/getShareaState",{
+			type:"GET",
+			dataType:"json",
+			success:function(data){
+				$.each(data,function(i,obj){
+					$("[name=state]").append("<option value="+obj.name+">"+obj.mergername+"</option>");
+				});
+			}
+		});
+	}
+
+	setTimeout(function(){initChina()},50)
+	function initChina(){
+		var state=$("[name=state]").val();
+			getChina(state);
+	}
+	function getChina(state){
+		$.ajax("/lzh/api/getChinaCity/"+state,{
+			type:"GET",
+			dataType:"json",
+			success:function(data){
+				console.info(data);
+				$("[name=city]").html("");$("[name=city]").append("<option value=''>请选择</option>");
+				$.each(data,function(i,obj){
+					$("[name=city]").append("<option value="+obj.name+">"+obj.mergername+"</option>");
+				});
+			}
+		});
+	}
+	function setarea(state){
+		if (state=="中国") {
+			initChina(state);
+		}else if(state=="韩国"){
+			getKorea(state);
+		}else{
+			getCity(state);
+		}
+	}
+	function getCity(city){
+		$.ajax("/lzh/api/getArea/"+city,{
+			type:"GET",
+			dataType:"json",
+			success:function(data){
+				console.info(data);
+				$("[name=area]").html("");$("[name=area]").append("<option value=''>请选择</option>");
+				$.each(data,function(i,obj){
+					$("[name=area]").append("<option value="+obj.name+">"+obj.mergername+"</option>");
+				});
+			}
+		});
+	}
+	function getKorea(state){
+		$.ajax("/lzh/api/getKoreaCity/"+state,{
+			type:"GET",
+			dataType:"json",
+			success:function(data){
+				console.info(data);
+				$("[name=city]").html("");$("[name=city]").append("<option value=''>请选择</option>");
+				$.each(data,function(i,obj){
+					$("[name=city]").append("<option value="+obj.name+">"+obj.mergername+"</option>");
+				});
+			}
+		});
+	}
+</script>
 </html>
