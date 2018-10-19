@@ -424,10 +424,10 @@ function removepic(obj){
 		var kg=$("[name=weights]").val();//重量
 		var price=$("#price").html();//金额
 		var delivery=$("#fhfs").html();//发货方式
-		if(fhfs=="上门取货"){
-			fhfs=1;
+		if(delivery=="上门取货"){
+			delivery=1;
 		}else{
-			fhfs=2;
+			delivery=2;
 		}
 		var userName=$("[name=fhr]").val();//发货人
 		var userphone=$("[name=fhrtel]").val();//发货人电话
@@ -441,6 +441,33 @@ function removepic(obj){
 		var collectgoodsaddr=state2+city2+area2+address2;//收获地址
 		var auditstatus=1;
 		
+		var logis={};
+		logis["userid"]=userid;
+		logis["orderid"]=orderid;
+		logis["title"]=title;
+		logis["img1"]=img1;logis["img2"]=img2;logis["img3"]=img3;logis["img4"]=img4;logis["img5"]=img5;
+		logis["kg"]=kg;
+		logis["delivery"]=delivery;
+		logis["price"]=price;
+		logis["userName"]=userName;
+		logis["userphone"]=userphone;
+		logis["useraddr"]=useraddr;
+		logis["collectgoods"]=collectgoods;
+		logis["collectgoodsphone"]=collectgoodsphone;
+		logis["collectgoodsaddr"]=collectgoodsaddr;
+		logis["auditstatus"]=auditstatus;
+		logis["describe"]=describe;
+		alert(JSON.stringify(logis));
+		
+		$.ajax("/lzh/api/addLogis",{
+			type:"post",
+			contentType:"application/json",
+			data:JSON.stringify(logis),
+			dataType:"json",
+			success:function(data){
+				alert(data);
+			}
+		});
 	}
 </script>
 </html>

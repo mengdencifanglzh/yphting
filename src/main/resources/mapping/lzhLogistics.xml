@@ -38,10 +38,10 @@
 			  `orderTime`,`auditStatus`
 			)
 			VALUES
-			  ('userID','orderID','title','describe','img1','img2',
-			    'img3','img4','img5','kg','delivery','price','userName','userPhone',
-			    'userAddr','collectGoods','collectGoodsPhone','collectGoodsAddr',
-			    now(),'auditStatus'
+			  ('${logis.userID}','${logis.orderID}','${logis.title}','${logis.describe}','${logis.img1}','${logis.img2}',
+			    '${logis.img3}','${logis.img4}','${logis.img5}','${logis.kg}','${logis.delivery}','${logis.price}','${logis.userName}','${logis.userPhone}',
+			    '${logis.userAddr}','${logis.collectGoods}','${logis.collectGoodsPhone}','${logis.collectGoodsAddr}',
+			    now(),'${logis.auditStatus}'
 		);
 	</insert>
 </mapper>
