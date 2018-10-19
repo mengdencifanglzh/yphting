@@ -41,7 +41,7 @@
 			  ('userID','orderID','title','describe','img1','img2',
 			    'img3','img4','img5','kg','delivery','price','userName','userPhone',
 			    'userAddr','collectGoods','collectGoodsPhone','collectGoodsAddr',
-			    'orderTime','auditStatus'
+			    now(),'auditStatus'
 		);
 	</insert>
 </mapper>

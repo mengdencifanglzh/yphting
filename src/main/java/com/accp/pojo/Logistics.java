@@ -306,7 +306,7 @@ public class Logistics {
 	public Logistics(Integer userid, String orderid, String title, String img1, String img2,
 			String img3, String img4, String img5, Integer kg, Integer delivery, Integer price, String userName,
 			String userphone, String useraddr, String collectgoods, String collectgoodsphone, String collectgoodsaddr,
-			Date ordertime, Integer auditstatus, String describe) {
+			Integer auditstatus, String describe) {
 		super();
 		this.userid = userid;
 		this.orderid = orderid;
@@ -325,7 +325,6 @@ public class Logistics {
 		this.collectgoods = collectgoods;
 		this.collectgoodsphone = collectgoodsphone;
 		this.collectgoodsaddr = collectgoodsaddr;
-		this.ordertime = ordertime;
 		this.auditstatus = auditstatus;
 		this.describe = describe;
 	}

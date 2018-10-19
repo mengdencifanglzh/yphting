@@ -53,4 +53,7 @@ public class logisticsBiz {
 	public List<Sharea> getKoreaArea(String city){
 		return dao.queryKoreaArea(city);
 	}
+	public void addLogistics(Logistics logis) {
+		dao.addLogistics(logis);
+	}
 }

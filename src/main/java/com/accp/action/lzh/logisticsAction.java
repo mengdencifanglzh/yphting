@@ -54,4 +54,5 @@ public class logisticsAction {
 		return biz.getKoreaArea(city);
 	}
 	
+	
 }
