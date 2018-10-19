@@ -53,4 +53,5 @@ public class logisticsAction {
 	public List<Sharea> getKoreaArea(@PathVariable String city){
 		return biz.getKoreaArea(city);
 	}
+	
 }

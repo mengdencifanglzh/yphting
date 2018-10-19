@@ -9,7 +9,7 @@
 			dataType:"json",
 			success:function(data){
 				$.each(data,function(i,obj){
-					$("[name=state]").append("<option value="+obj.name+">"+obj.mergername+"</option>");
+					$("[name=state]").append("<option value="+obj.mergername+">"+obj.mergername+"</option>");
 				});
 			}
 		});
@@ -22,7 +22,7 @@
 			dataType:"json",
 			success:function(data){
 				$.each(data,function(i,obj){
-					$("[name=state2]").append("<option value="+obj.name+">"+obj.mergername+"</option>");
+					$("[name=state2]").append("<option value="+obj.mergername+">"+obj.mergername+"</option>");
 				});
 			}
 		});
@@ -45,7 +45,7 @@
 			success:function(data){
 				$("[name=city]").html("");$("[name=city]").append("<option value=''>请选择</option>");
 				$.each(data,function(i,obj){
-					$("[name=city]").append("<option value="+obj.name+">"+obj.mergername+"</option>");
+					$("[name=city]").append("<option value="+obj.mergername+">"+obj.mergername+"</option>");
 				});
 			}
 		});
@@ -58,7 +58,7 @@
 			success:function(data){
 				$("[name=city2]").html("");$("[name=city2]").append("<option value=''>请选择</option>");
 				$.each(data,function(i,obj){
-					$("[name=city2]").append("<option value="+obj.name+">"+obj.mergername+"</option>");
+					$("[name=city2]").append("<option value="+obj.mergername+">"+obj.mergername+"</option>");
 				});
 			}
 		});
@@ -101,7 +101,7 @@
 			success:function(data){
 				$("[name=area]").html("");$("[name=area]").append("<option value=''>请选择</option>");
 				$.each(data,function(i,obj){
-					$("[name=area]").append("<option value="+obj.name+">"+obj.mergername+"</option>");
+					$("[name=area]").append("<option value="+obj.mergername+">"+obj.mergername+"</option>");
 				});
 			}
 		});
@@ -113,7 +113,7 @@
 			success:function(data){
 				$("[name=area2]").html("");$("[name=area2]").append("<option value=''>请选择</option>");
 				$.each(data,function(i,obj){
-					$("[name=area2]").append("<option value="+obj.name+">"+obj.mergername+"</option>");
+					$("[name=area2]").append("<option value="+obj.mergername+">"+obj.mergername+"</option>");
 				});
 			}
 		});
@@ -125,7 +125,7 @@
 			success:function(data){
 				$("[name=area]").html("");$("[name=area]").append("<option value=''>请选择</option>");
 				$.each(data,function(i,obj){
-					$("[name=area]").append("<option value="+obj.name+">"+obj.mergername+"</option>");
+					$("[name=area]").append("<option value="+obj.mergername+">"+obj.mergername+"</option>");
 				});
 			}
 		});
@@ -137,7 +137,7 @@
 			success:function(data){
 				$("[name=area2]").html("");$("[name=area2]").append("<option value=''>请选择</option>");
 				$.each(data,function(i,obj){
-					$("[name=area2]").append("<option value="+obj.name+">"+obj.mergername+"</option>");
+					$("[name=area2]").append("<option value="+obj.mergername+">"+obj.mergername+"</option>");
 				});
 			}
 		});
@@ -149,7 +149,7 @@
 			success:function(data){
 				$("[name=city]").html("");$("[name=city]").append("<option value=''>请选择</option>");
 				$.each(data,function(i,obj){
-					$("[name=city]").append("<option value="+obj.name+">"+obj.mergername+"</option>");
+					$("[name=city]").append("<option value="+obj.mergername+">"+obj.mergername+"</option>");
 				});
 			}
 		});
@@ -161,7 +161,7 @@
 			success:function(data){
 				$("[name=city2]").html("");$("[name=city2]").append("<option value=''>请选择</option>");
 				$.each(data,function(i,obj){
-					$("[name=city2]").append("<option value="+obj.name+">"+obj.mergername+"</option>");
+					$("[name=city2]").append("<option value="+obj.mergername+">"+obj.mergername+"</option>");
 				});
 			}
 		});

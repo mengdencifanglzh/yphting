@@ -130,7 +130,7 @@ $(function(){
 			<dl class="info_form_dl">
 				<dt>物品标题</dt>
 				<dd>
-					<input type="text" class="input_c inf_inc validate[required]" name="subject" />
+					<input type="text" class="input_c inf_inc validate[required]" name="title" />
 				</dd>
 			</dl>
 			<dl class="info_form_dl">
@@ -157,14 +157,14 @@ $(function(){
 			</dl>
 			<dl class="info_form_dl">
 				<dt class="mopa">发货方式</dt>
-				<dd class="f14 shiptype">
+				<dd class="f14 shiptype" id="fhfs">
 					自发
 				</dd>
 			</dl>
 			<dl class="info_form_dl">
 				<dt class="mopa">金币</dt>
 				<dd class="f14">
-					<font id="weight">1</font>kg&nbsp;&nbsp;&nbsp;&nbsp;<span class="num_2 num_1_s" style="display:none;">42</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="num_2 num_1_s">42</span>
+					<font id="weight">1</font>kg&nbsp;&nbsp;&nbsp;&nbsp;<span class="num_2 num_1_s" style="display:none;">42</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="num_2 num_1_s" id="price">42</span>
 				</dd>
 			</dl>
 			<dl class="info_form_dl">
@@ -221,7 +221,7 @@ $(function(){
 			</dl>
 			<div class="business_btn_d">
 				<a href="/index.php/Home/Member/logistics.html" class="fr btna_s2">取消申请</a>
-				                <a href="javascript:void(0);" class="btn_jy_a btn_jy_a2" onClick="$('#formmsg').submit()">提交发货申请，去支付</a>				
+				                <a href="javascript:void(0);" class="btn_jy_a btn_jy_a2" onclick="submitAdd()">提交发货申请，去支付</a>				
 			</div>
 		<input type="hidden" name="__hash__" value="b65b17479e086beaccee3c2fac790e4c_0ddffe44577f5b5c9ed853fb9e482618" /></form>
 	</div>
@@ -414,4 +414,32 @@ function removepic(obj){
 </style>
 </body>
 <script type="text/javascript" src="../js/lzh/addLogistics.js"></script>
+<script type="text/javascript">
+	function submitAdd(){
+		var userid=1001;//session获取
+		var orderid="201810192150";
+		var title=$("[name=title]").val();
+		var img1="";var img2="";var img3="";var img4="";var img5="";
+		var descr=$("[name=descr]").val();//
+		var kg=$("[name=weights]").val();//重量
+		var price=$("#price").html();//金额
+		var delivery=$("#fhfs").html();//发货方式
+		if(fhfs=="上门取货"){
+			fhfs=1;
+		}else{
+			fhfs=2;
+		}
+		var userName=$("[name=fhr]").val();//发货人
+		var userphone=$("[name=fhrtel]").val();//发货人电话
+		var state=$("[name=state]").val(); var city=$("[name=city]").val();
+		var area=$("[name=area]").val();var address=$("[name=address]").val();
+		var useraddr=state+city+area+address;//发货地址
+		var collectgoods=$("[name=shr]").val();//收货人
+		var collectgoodsphone=$("[name=shrtel]").val();//收货人电话
+		var state2=$("[name=state2]").val(); var city2=$("[name=city2]").val();
+		var area2=$("[name=area2]").val();var address2=$("[name=shaddress]").val();
+		var collectgoodsaddr=state2+city2+area2+address2;//收获地址
+		
+	}
+</script>
 </html>
