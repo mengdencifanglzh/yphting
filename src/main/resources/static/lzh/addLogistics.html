@@ -457,7 +457,6 @@ function removepic(obj){
 		logis["collectgoodsaddr"]=collectgoodsaddr;
 		logis["auditstatus"]=auditstatus;
 		logis["describe"]=describe;
-		alert(JSON.stringify(logis));
 		
 		$.ajax("/lzh/api/addLogis",{
 			type:"post",
@@ -465,7 +464,10 @@ function removepic(obj){
 			data:JSON.stringify(logis),
 			dataType:"json",
 			success:function(data){
-				alert(data);
+				if(data.code=="200"){
+					alert("申请成功！");
+					location.href='logistics.html';
+				}
 			}
 		});
 	}
