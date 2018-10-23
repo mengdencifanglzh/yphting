@@ -387,7 +387,7 @@ a.check_more:hover{ border-color:#935539; color:#935539;}
 .tcel6{ width:110px;}
 .c_2{ color:#959595;}
 .num_1{ background:url(../../images/lzh/i_3.png) no-repeat 0 50%; padding-left:30px; display:inline-block; line-height:26px; color:#82685c;}
-.num_2{ background:url(../images/i_3.png) no-repeat 0 50%; padding-left:30px; display:inline-block; line-height:26px;}
+.num_2{ background:url(../../images/lzh/i_3.png) no-repeat 0 50%; padding-left:30px; display:inline-block; line-height:26px;}
 .num_1_s{ background-image:url(../../images/lzh/i_4.png); padding-left:20px;}
 .yd_info{ padding:0 8px;}
 .yd_info .yd_sev_h3{ padding-left:0; margin-bottom:25px;}
@@ -402,7 +402,7 @@ a.check_more:hover{ border-color:#935539; color:#935539;}
 .fa_xz{ padding:30px 8px; border-top:solid 1px #e3e3e3; margin-top:30px; overflow:hidden; font-size:14px; color:#959595; line-height:50px;}
 .fa_zf_r{ float:right;}
 .jyxz_btn{ color:#9b257e;}
-.jy_num{ display:inline-block; background:url(../images/i_3.png) no-repeat 0 50%; padding-left:30px; font-family: 'GothaProBla'; color:#d95c97; font-size:25px; vertical-align:middle; margin:0 10px 0 20px;}
+.jy_num{ display:inline-block; background:url(../../images/lzh/i_3.png) no-repeat 0 50%; padding-left:30px; font-family: 'GothaProBla'; color:#d95c97; font-size:25px; vertical-align:middle; margin:0 10px 0 20px;}
 .btn_jy_a{ height:50px; line-height:50px; width:200px; background:#f34295; display:inline-block; -moz-border-radius:30px; -ms-border-radius:30px; -o-border-radius:30px; -webkit-border-radius:30px; border-radius:30px; text-align:center; font-size:22px; color:#fff; vertical-align:middle; letter-spacing:1px;}
 .btn_jy_a:hover{ color:#fff; background:#d71470;}
 

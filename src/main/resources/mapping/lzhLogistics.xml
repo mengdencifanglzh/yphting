@@ -21,7 +21,7 @@
 		SELECT * FROM `sharea` WHERE `level`=0
 	</select>
 	<select id="queryKoreaCity" resultType="Sharea">
-		SELECT * FROM `sharea` WHERE `level`=2 AND `pid` IN(SELECT `areaID` FROM `sharea` WHERE `mergername`='${state}')
+		SELECT * FROM `sharea` WHERE `level`=1 AND `pid` IN(SELECT `areaID` FROM `sharea` WHERE `mergername`='${state}')
 	</select>
 	<select id="queryChinaCity" resultType="Sharea">
 		SELECT * FROM `sharea` WHERE `level`=1 AND `pid` IN(SELECT `areaID` FROM `sharea` WHERE `mergername`='${state}')
@@ -30,7 +30,7 @@
 		SELECT * FROM `sharea` WHERE `level`=2 AND `pid` IN(SELECT `areaID` FROM `sharea` WHERE `mergername`='${city}')
 	</select>
 	<select id="queryKoreaArea" resultType="Sharea">
-		SELECT * FROM `sharea` WHERE `level`=3 AND `pid` IN(SELECT `areaID` FROM `sharea` WHERE `mergername`='${city}')
+		SELECT * FROM `sharea` WHERE `level`=2 AND `pid` IN(SELECT `areaID` FROM `sharea` WHERE `mergername`='${city}')
 	</select>
 	<insert id="addLogistics">
 		INSERT INTO `logistics` (`userID`,`orderID`,`title`,`describe`,`img1`,`img2`,`img3`,`img4`,`img5`,
