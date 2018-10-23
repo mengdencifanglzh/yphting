@@ -7,6 +7,8 @@ public class Putforward {
 
     private Integer userid;
 
+    private String putname;
+
     private Integer bankid;
 
     private String bankaccount;
@@ -21,17 +23,7 @@ public class Putforward {
 
     private Integer auditstatus;
 
-    private String putName;
-    
-    public String getPutName() {
-		return putName;
-	}
-
-	public void setPutName(String putName) {
-		this.putName = putName;
-	}
-
-	public Integer getPfid() {
+    public Integer getPfid() {
         return pfid;
     }
 
@@ -45,6 +37,14 @@ public class Putforward {
 
     public void setUserid(Integer userid) {
         this.userid = userid;
+    }
+
+    public String getPutname() {
+        return putname;
+    }
+
+    public void setPutname(String putname) {
+        this.putname = putname == null ? null : putname.trim();
     }
 
     public Integer getBankid() {

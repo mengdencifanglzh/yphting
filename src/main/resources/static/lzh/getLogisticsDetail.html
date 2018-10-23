@@ -159,9 +159,9 @@ function orderShou(_oid){
                 </li>
                 <li>
                 	<p class="c_4 f12">您的发货信息</p>
-                    <p class="mt5"><span id="fhdz">中国 湖南 怀化市 北大qingniao</span>					<br/><span id="fhr"></span><span id="fhrdh"></span></p>
+                    <p class="mt5"><span id="fhdz"></span>					<br/><span id="fhr"></span><span id="fhrdh"></span></p>
 					<p class="c_4 f12">您的国内收货信息</p>
-                    <p class="mt5"><span id="shdz">中国 河南 驻马店市 121</span>					<br/><span id="shr"></span> <span id="shrdh"></span></p>
+                    <p class="mt5"><span id="shdz"></span>					<br/><span id="shr"></span> <span id="shrdh"></span></p>
                 </li>
             </ul>
         </div>
@@ -340,8 +340,8 @@ init();
 				$("#mx").html(data.describe);
 				$("#fhdz").html(data.useraddr);
 				$("#fhr").html(data.userName);//此处使用session登录用户
-				$("#fhrdh").html(data.userphone);
-				$("#shrdz").html(data.collectgoodsaddr);
+				$("#fhdh").html(data.userphone);
+				$("#shdz").html(data.collectgoodsaddr);
 				$("#shr").html(data.collectgoods);
 				$("#shrdh").html(data.collectgoodsphone);
 				zhuanhuan();

@@ -15,6 +15,8 @@ public class Services {
 
     private String servicefutitle;
 
+    private String downloadtitle;
+
     private Integer serviceprice;
 
     private String servicecoverimg;
@@ -59,6 +61,10 @@ public class Services {
 
     private String uploaddataurl;
 
+    private Date releasetime;
+
+    private Integer browsenumber;
+
     private Float weight;
 
     private Boolean recommendbool;
@@ -67,27 +73,7 @@ public class Services {
 
     private String adminopinion;
 
-    private int releaseTime;
-    
-    private Date browseNumber;
-    
-    public int getReleaseTime() {
-		return releaseTime;
-	}
-
-	public void setReleaseTime(int releaseTime) {
-		this.releaseTime = releaseTime;
-	}
-
-	public Date getBrowseNumber() {
-		return browseNumber;
-	}
-
-	public void setBrowseNumber(Date browseNumber) {
-		this.browseNumber = browseNumber;
-	}
-
-	public Integer getServiceid() {
+    public Integer getServiceid() {
         return serviceid;
     }
 
@@ -133,6 +119,14 @@ public class Services {
 
     public void setServicefutitle(String servicefutitle) {
         this.servicefutitle = servicefutitle == null ? null : servicefutitle.trim();
+    }
+
+    public String getDownloadtitle() {
+        return downloadtitle;
+    }
+
+    public void setDownloadtitle(String downloadtitle) {
+        this.downloadtitle = downloadtitle == null ? null : downloadtitle.trim();
     }
 
     public Integer getServiceprice() {
@@ -309,6 +303,22 @@ public class Services {
 
     public void setUploaddataurl(String uploaddataurl) {
         this.uploaddataurl = uploaddataurl == null ? null : uploaddataurl.trim();
+    }
+
+    public Date getReleasetime() {
+        return releasetime;
+    }
+
+    public void setReleasetime(Date releasetime) {
+        this.releasetime = releasetime;
+    }
+
+    public Integer getBrowsenumber() {
+        return browsenumber;
+    }
+
+    public void setBrowsenumber(Integer browsenumber) {
+        this.browsenumber = browsenumber;
     }
 
     public Float getWeight() {

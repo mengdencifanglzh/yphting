@@ -117,43 +117,19 @@ public class User {
 
     private Boolean stateboolean;
 
+    private Boolean mailboxverification;
+
+    private String registerip;
+
+    private String lastentry;
+
     private Date userregistrationtime;
 
     private Date recententry;
 
     private String reason;
 
-    private boolean mailboxVerification;
-    
-    private String registerIP;
-    
-    private String lastEntry;
-    
-    public boolean isMailboxVerification() {
-		return mailboxVerification;
-	}
-
-	public void setMailboxVerification(boolean mailboxVerification) {
-		this.mailboxVerification = mailboxVerification;
-	}
-
-	public String getRegisterIP() {
-		return registerIP;
-	}
-
-	public void setRegisterIP(String registerIP) {
-		this.registerIP = registerIP;
-	}
-
-	public String getLastEntry() {
-		return lastEntry;
-	}
-
-	public void setLastEntry(String lastEntry) {
-		this.lastEntry = lastEntry;
-	}
-
-	public Integer getUserid() {
+    public Integer getUserid() {
         return userid;
     }
 
@@ -607,6 +583,30 @@ public class User {
 
     public void setStateboolean(Boolean stateboolean) {
         this.stateboolean = stateboolean;
+    }
+
+    public Boolean getMailboxverification() {
+        return mailboxverification;
+    }
+
+    public void setMailboxverification(Boolean mailboxverification) {
+        this.mailboxverification = mailboxverification;
+    }
+
+    public String getRegisterip() {
+        return registerip;
+    }
+
+    public void setRegisterip(String registerip) {
+        this.registerip = registerip == null ? null : registerip.trim();
+    }
+
+    public String getLastentry() {
+        return lastentry;
+    }
+
+    public void setLastentry(String lastentry) {
+        this.lastentry = lastentry == null ? null : lastentry.trim();
     }
 
     public Date getUserregistrationtime() {

@@ -1,5 +1,7 @@
 package com.accp.pojo;
 
+import java.util.Date;
+
 public class Advertisement {
     private Integer aid;
 
@@ -15,19 +17,17 @@ public class Advertisement {
 
     private String aappurl;
 
+    private Boolean state;
+
+    private Date starttime;
+
+    private Integer rentamonth;
+
+    private Float price;
+
     private String adescribe;
 
-    private float price;
-    
-    public float getPrice() {
-		return price;
-	}
-
-	public void setPrice(float price) {
-		this.price = price;
-	}
-
-	public Integer getAid() {
+    public Integer getAid() {
         return aid;
     }
 
@@ -81,6 +81,38 @@ public class Advertisement {
 
     public void setAappurl(String aappurl) {
         this.aappurl = aappurl == null ? null : aappurl.trim();
+    }
+
+    public Boolean getState() {
+        return state;
+    }
+
+    public void setState(Boolean state) {
+        this.state = state;
+    }
+
+    public Date getStarttime() {
+        return starttime;
+    }
+
+    public void setStarttime(Date starttime) {
+        this.starttime = starttime;
+    }
+
+    public Integer getRentamonth() {
+        return rentamonth;
+    }
+
+    public void setRentamonth(Integer rentamonth) {
+        this.rentamonth = rentamonth;
+    }
+
+    public Float getPrice() {
+        return price;
+    }
+
+    public void setPrice(Float price) {
+        this.price = price;
     }
 
     public String getAdescribe() {

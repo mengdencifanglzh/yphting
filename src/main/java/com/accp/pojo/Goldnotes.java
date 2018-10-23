@@ -7,6 +7,8 @@ public class Goldnotes {
 
     private Integer userid;
 
+    private Integer acquisitionmode;
+
     private Date recorddate;
 
     private String recorddescribe;
@@ -29,6 +31,14 @@ public class Goldnotes {
 
     public void setUserid(Integer userid) {
         this.userid = userid;
+    }
+
+    public Integer getAcquisitionmode() {
+        return acquisitionmode;
+    }
+
+    public void setAcquisitionmode(Integer acquisitionmode) {
+        this.acquisitionmode = acquisitionmode;
     }
 
     public Date getRecorddate() {

@@ -27,16 +27,9 @@ public class Logistics {
 
     private Integer price;
 
-    private String userName;
-    
-    public String getUserName() {
-		return userName;
-	}
+    private String userphone;
 
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
-	private String userphone;
+    private String username;
 
     private String useraddr;
 
@@ -174,6 +167,14 @@ public class Logistics {
         this.userphone = userphone == null ? null : userphone.trim();
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username == null ? null : username.trim();
+    }
+
     public String getUseraddr() {
         return useraddr;
     }
@@ -301,33 +302,4 @@ public class Logistics {
     public void setDescribe(String describe) {
         this.describe = describe == null ? null : describe.trim();
     }
-
-	
-	public Logistics(Integer userid, String orderid, String title, String img1, String img2,
-			String img3, String img4, String img5, Integer kg, Integer delivery, Integer price, String userName,
-			String userphone, String useraddr, String collectgoods, String collectgoodsphone, String collectgoodsaddr,
-			Integer auditstatus, String describe) {
-		super();
-		this.userid = userid;
-		this.orderid = orderid;
-		this.title = title;
-		this.img1 = img1;
-		this.img2 = img2;
-		this.img3 = img3;
-		this.img4 = img4;
-		this.img5 = img5;
-		this.kg = kg;
-		this.delivery = delivery;
-		this.price = price;
-		this.userName = userName;
-		this.userphone = userphone;
-		this.useraddr = useraddr;
-		this.collectgoods = collectgoods;
-		this.collectgoodsphone = collectgoodsphone;
-		this.collectgoodsaddr = collectgoodsaddr;
-		this.auditstatus = auditstatus;
-		this.describe = describe;
-	}
-
-	public Logistics() {}
 }

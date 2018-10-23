@@ -417,7 +417,11 @@ function removepic(obj){
 <script type="text/javascript">
 	function submitAdd(){
 		var userid=1001;//session获取
-		var orderid="201810192150";
+		var ran1="";
+		for (var i = 0; i < 12; i++) {
+			ran1+=parseInt(Math.random()*9);
+		}
+		var orderid=ran1;
 		var title=$("[name=title]").val();
 		var img1="";var img2="";var img3="";var img4="";var img5="";
 		var describe=$("[name=descr]").val();//描叙
