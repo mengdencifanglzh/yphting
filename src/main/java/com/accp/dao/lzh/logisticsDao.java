@@ -26,4 +26,6 @@ public interface logisticsDao {
 	public void addLogistics(@Param("logis")Logistics logis);
 	//修改收货信息
 	public void updateCollectAdds(@Param("collectGoods")String collectGoods,@Param("collectGoodsPhone")String collectGoodsPhone,@Param("collectGoodsAddr")String collectGoodsAddr,@Param("orderID")String orderID);
+	//修改查询
+	public Logistics queryUpdateAdds(@Param("orderID")String orderID);
 }

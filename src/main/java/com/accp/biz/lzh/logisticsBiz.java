@@ -61,4 +61,7 @@ public class logisticsBiz {
 	public void updateCollectAdds(String collectGoods,String collectGoodsPhone,String collectGoodsAddr,String orderID) {
 		dao.updateCollectAdds(collectGoods, collectGoodsPhone, collectGoodsAddr, orderID);
 	}
+	public Logistics getUpdateAdds(String orderID) {
+		return dao.queryUpdateAdds(orderID);
+	}
 }

@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -68,12 +69,16 @@ public class logisticsAction {
 		message.put("msg", "ok");
 		return message;
 	}
-	@PutMapping("updateCollectAdds/{collectGoods}/{collectGoodsPhone}/{collectGoodsPhone}/{orderID}")
+	@PutMapping("updateCollectAdds/{collectGoods}/{collectGoodsPhone}/{collectGoodsAddr}/{orderID}")
 	public Map<String,String> updateCollectAdds(@PathVariable String collectGoods,@PathVariable String collectGoodsPhone,@PathVariable String collectGoodsAddr,@PathVariable String orderID) {
 		biz.updateCollectAdds(collectGoods, collectGoodsPhone, collectGoodsAddr, orderID);
 		Map<String, String> message = new HashMap<String, String>();
 		message.put("code", "200");
 		message.put("msg", "ok");
 		return message;
+	}
+	@GetMapping("getUpdateAdds/{orderID}")
+	public Logistics getUpdateAdds(@PathVariable String orderID) {
+		return biz.getUpdateAdds(orderID);
 	}
 }

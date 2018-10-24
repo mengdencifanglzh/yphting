@@ -48,4 +48,7 @@
 		UPDATE `logistics` SET `collectGoods`='${collectGoods}',`collectGoodsPhone`='${collectGoodsPhone}',
 		`collectGoodsAddr`='${collectGoodsAddr}' WHERE `orderID`='${orderID}';
 	</update>
+	<select id="queryUpdateAdds" resultType="com.accp.pojo.Logistics">
+		SELECT * FROM `logistics` WHERE `orderID`='${orderID}'
+	</select>
 </mapper>

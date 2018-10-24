@@ -154,8 +154,8 @@ $(function(){
 				</dd>
 			</dl>
 			<div class="business_btn_d">
-				                <a href="javascript:void(0);" class="btn_jy_a btn_jy_a2" onclick="xiugai()">确认修改</a>
-				                 <a href="getLogisticsDetail.html" class="btn_jy_a btn_jy_a2">取消</a>				
+				 <a href="javascript:void(0);" class="btn_jy_a btn_jy_a2" onclick="xiugai()">确认修改</a>
+				                 <a href="getLogisticsDetail.html" class="btn_jy_a btn_jy_a2">取消</a>
 			</div>
 		<input type="hidden" name="__hash__" value="b65b17479e086beaccee3c2fac790e4c_0ddffe44577f5b5c9ed853fb9e482618" /></form>
 	</div>
@@ -285,9 +285,82 @@ function chktop(){
 <!--联系我们的浮层 end-->
 
 <script src="../js/lzh/jquery.scrollto.js"></script>
+
+
+<script>
+_price = 42;
+_max = 30;
+function setfreight(wei){
+	_money = parseInt(wei * _price);
+	$('.num_1_s:eq(1)').html(_money);
+	if(wei >= _max){
+		_str = '上门取货';
+	}else{
+		_str = '自发';
+	}
+	$('#weight').html(wei);
+	$('.shiptype').html(_str);
+}
+</script>
+
+<script language="javascript" src="../js/lzh/ajaxupload.js"></script>
+<script language="javascript">
+
+var imgUploadBtn = document.getElementById("uploadimage");
+new AjaxUpload(imgUploadBtn,{
+	action:'/index.php/Home/Kindeditor/upload/size/5/water/0.html',
+	name:"imgFile",
+	onSubmit:function(file,ext){
+		_len = $('#pics .imgpic_box').length;
+		if(_len>=5){
+			showtip('只能上传5张图片');
+			return false;
+		}else{
+			if(ext && /^(jpg|jpeg|png)$/.test(ext)){
+				imgUploadBtn.innerHTML = " 正在上传 ";
+				//imgUploadBtn.disabled = "disabled";
+			}else{
+				showtip('图片格式错误');
+				return false;
+			}
+		}
+	},
+	onComplete:function(file,response){
+		//imgUploadBtn.disabled = "";
+		imgUploadBtn.innerHTML = " 继续上传 ";
+		console.log(response);
+		var obj = jQuery.parseJSON(response);
+		console.log(obj);
+		if(obj.error == 0){
+			$('#pics').append('<div class="imgpic_box"><input type="hidden" name="pics[]" value="'+obj.url+'" /><img src="'+obj.url+'" width="100" alt=""><a href="javascript:void(0);" class="img_close_btn" onClick="removepic(this)"></a></div>');
+			$('#picss').append('');
+		}else
+			showtip(obj.message);
+	}
+});
+function removepic(obj){
+	$(obj).parent().remove();
+}
+
+</script>
+<style>
+#pics img{ margin-right: 10px; }
+</style>
 </body>
 <script type="text/javascript" src="../js/lzh/addLogistics.js"></script>
 <script type="text/javascript">
+	 init();
+	function init(){
+		var orderID=sessionStorage.getItem("orderID");
+		$.ajax("/lzh/api/getUpdateAdds/"+orderID,{
+			type:"GET",
+			dataType:"json",
+			success:function(data){
+				$("[name=shr]").val(data.collectgoods);
+				$("[name=shrtel]").val(data.collectgoodsphone);
+			}
+		});
+	} 
 	function xiugai(){
 		var orderID=sessionStorage.getItem("orderID");
 		var collectGoods=$("[name=shr]").val();
@@ -297,12 +370,13 @@ function chktop(){
 		var area2=$("[name=area2]").val();
 		var shaddress=$("[name=shaddress]").val();
 		var collectGoodsAddr=state2+city2+area2+shaddress;
-		$.ajax({
-			url:"/lzh/api/updateCollectAdds/"+collectGoods+"/"+collectGoodsPhone+"/"+collectGoodsAddr+"/"+orderID,
+		$.ajax("/lzh/api/updateCollectAdds/"+collectGoods+"/"+collectGoodsPhone+"/"+collectGoodsAddr+"/"+orderID,{
 			type:"PUT",
 			dataType:"json",
 			success:function(data){
-				alert(data.code);
+				if(data.code=="200"){
+					location.href='getLogisticsDetail.html';
+				}
 			}
 		});
 	}
