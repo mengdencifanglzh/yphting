@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -61,8 +62,15 @@ public class logisticsAction {
 	@RequestMapping(value="addLogis",method=RequestMethod.POST)
 	@ResponseBody
 	public Map<String,String> addLogistics(@RequestBody Logistics logis){
-		System.out.println(logis.getCollectgoods());
 		biz.addLogistics(logis);
+		Map<String, String> message = new HashMap<String, String>();
+		message.put("code", "200");
+		message.put("msg", "ok");
+		return message;
+	}
+	@PutMapping("updateCollectAdds/{collectGoods}/{collectGoodsPhone}/{collectGoodsPhone}/{orderID}")
+	public Map<String,String> updateCollectAdds(@PathVariable String collectGoods,@PathVariable String collectGoodsPhone,@PathVariable String collectGoodsAddr,@PathVariable String orderID) {
+		biz.updateCollectAdds(collectGoods, collectGoodsPhone, collectGoodsAddr, orderID);
 		Map<String, String> message = new HashMap<String, String>();
 		message.put("code", "200");
 		message.put("msg", "ok");

@@ -34,8 +34,37 @@
 _weburl = 'http://yphting.zglxkj.com';
 </script>
 <meta property="wb:webmaster" content="1a0bb5a2cb580b9f" />
-<meta name="__hash__" content="d73d959869cdfd9a37eb15a668c4150c_4136caeb1f2119d2e6eab470efcd0916" /></head>
+<meta name="__hash__" content="b65b17479e086beaccee3c2fac790e4c_0ddffe44577f5b5c9ed853fb9e482618" /></head>
 <iframe name="topost" id="topost" style="display:none;"></iframe>
+<script src="../js/lzh/jquery.validationEngine-zh_CN.js" type="text/javascript" charset="utf-8">
+</script>
+<script src="../js/lzh/jquery.validationEngine.js" type="text/javascript" charset="utf-8">
+</script>
+<script>
+function chkform()
+{
+	showloading();
+}
+function beforeCall(form, status){
+	showloading();
+}
+function ajaxValidationCallback(d, form, json, options){
+	closetip();
+	console.log(json);	
+	if(json.state === 1){
+		setTimeout("location.href='/index.php?m=Home&c=Payment&a=pay&id="+json.lid+"'",1);
+	}else{
+		showtip(json.msg);
+	}
+};
+
+jQuery(document).ready(function(){
+	// binds form submission and fields to the validation engine
+	jQuery("#formmsg").validationEngine({autoHidePrompt:true,autoHideDelay:2000,binded:false
+		,ajaxFormValidation: false,ajaxFormValidationMethod: 'post',onBeforeAjaxFormValidation: beforeCall,onAjaxFormComplete: ajaxValidationCallback
+	});
+});
+</script>
 
 <body>
 <!--header-->
@@ -85,91 +114,53 @@ _weburl = 'http://yphting.zglxkj.com';
 </div>
 <!--header end-->
 
-<script language="javascript">
-function ordercancel(_oid){
-    location.href = "/index.php?m=Home&c=Member&a=setzt&oid="+_oid+'&act=cancel&continue=aHR0cDovL3lwaHRpbmcuemdseGtqLmNvbS9pbmRleC5waHAvSG9tZS9NZW1iZXIvbG9naXN0aWNzL2xpZC83MC5odG1s';
-}
-function ordersuccess(_oid){
-    location.href = "/index.php?m=Home&c=Member&a=setzt&oid="+_oid+'&act=success&continue=aHR0cDovL3lwaHRpbmcuemdseGtqLmNvbS9pbmRleC5waHAvSG9tZS9NZW1iZXIvbG9naXN0aWNzL2xpZC83MC5odG1s';
-}
-function orderaccept(_oid){
-    location.href = "/index.php?m=Home&c=Seller&a=orderzt&oid="+_oid+'&act=accept&continue=aHR0cDovL3lwaHRpbmcuemdseGtqLmNvbS9pbmRleC5waHAvSG9tZS9NZW1iZXIvbG9naXN0aWNzL2xpZC83MC5odG1s';
-}
-function ordercancelSeller(_oid){
-    location.href = "/index.php?m=Home&c=Seller&a=orderzt&oid="+_oid+'&act=cancel&continue=aHR0cDovL3lwaHRpbmcuemdseGtqLmNvbS9pbmRleC5waHAvSG9tZS9NZW1iZXIvbG9naXN0aWNzL2xpZC83MC5odG1s';
-}
-function orderservice(_oid){
-    location.href = "/index.php?m=Home&c=Seller&a=orderzt&oid="+_oid+'&act=submit&continue=aHR0cDovL3lwaHRpbmcuemdseGtqLmNvbS9pbmRleC5waHAvSG9tZS9NZW1iZXIvbG9naXN0aWNzL2xpZC83MC5odG1s';
-}
-function orderShou(_oid){
-    location.href = "/index.php?m=Home&c=Seller&a=orderzt&oid="+_oid+'&act=Shou&continue=aHR0cDovL3lwaHRpbmcuemdseGtqLmNvbS9pbmRleC5waHAvSG9tZS9NZW1iZXIvbG9naXN0aWNzL2xpZC83MC5odG1s';
-}
-</script>
-
 <a href="/index.php/Home/About/help.html" class="zy_box">预定流程指引</a>
 
 <div class="bg_c4 pt1">
 	<div class="b_box">
-    	<div class="sv_path border_c sv_nbor">
-        	<div class="fr c_4"><a href="/index.php/Home/About/trading.html" class="btna_s2 f14">交易须知</a></div>
-                        <a href="/index.php/Home/Seller/index.html">商家中心</a>            <span class="s_sp_v">-</span><a href="/index.php/Home/Member/logistics.html">我发出的物流</a>
-        </div>
-		<div class="business_order_nav ">
-			<ul id="business_order_nav_ul" class="business_order_nav_ul">
-				<li class="cur"><a href="javascript:void(0);">提交发货申请</a></li>
-				<li class="cur"><a href="javascript:void(0);">审核中</a></li>
-				<li ><a href="javascript:void(0);">审核通过</a></li>
-				<li ><a href="javascript:void(0);">已发国际EMS</a></li>
-				<li ><a href="javascript:void(0);">完成发货</a></li>
-			</ul>
-		</div>
-<script type="text/javascript">
-	$(function(){
-		$(".business_order_nav_ul .cur:not(':last')").removeClass('cur').addClass('pass');
-	});
-</script>
-        <div class=" business_order_box">
-			<p class="f14 mt10"><span class="c_4">物流服务状态</span><span class="big_font d_ff" id="fhzt">待审核</span>			
-			</p>
-						<p class="f14 c_4">
-				我们会尽快审核，请耐心等待，通过后请通过韩国物流发到我们韩国指定地址。
-							</p>												        </div>
-        
-        <div class="my_booking_cont">
-        	<ul class="my_booking_cont_ul">
-            	<li class="cel_1">
-                    <p class="c_4 f12">服务订单号</p>
-                    <p class="mt5" id="fwddh">15391571719639</p>
-					<p class="c_4 f12">发货方式</p>
-                    <p class="mt5" id="fhfs">自发</p>
-					<p class="c_4 f12">下单时间</p>
-                    <p class="mt5" id="xdsj">2018-10-10 15:39</p>
-																				                </li>
-                <li class="cel_2">
-                	<p class="c_4 f12 mt10">物品信息</p>
-					<p class="c_4 f12">重量</p>
-                    <p class="mt5" id="zl">5kg</p>
-                    <p class="c_4 f12">金币金额</p>
-                    <div class="num_1 f16 mt5" id="jbje">210</div>
-                    <p class="c_4 f12">物品标题与描述</p>
-                    <p id="bt">测试111</p>
-					<p class="f12 mt5 line20" id="mx">11111</p>
-					<div class="tk_img_d2" id="wptp">
-										<img src="../images/lzh/my_logo.png" alt="" width="100" />					</div>
-                </li>
-                <li>
-                	<p class="c_4 f12">您的发货信息</p>
-                    <p class="mt5"><span id="fhdz"></span>					<br/><span id="fhr"></span><span id="fhrdh"></span></p>
-					<p class="c_4 f12">您的国内收货信息&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="c_4 f12" id="updateAdds" href="javascript:void(0)">[修改]</a></p>
-                    <p class="mt5"><span id="shdz"></span>					<br/><span id="shr"></span> <span id="shrdh"></span></p>
-                </li>
-            </ul>
-        </div>
-        
-
-        
+		<form method="post" target="topost" id="formmsg">
+			<div class="sv_path border_c sv_nbor">
+            	                <a href="/index.php/Home/Seller/index.html">商家中心</a><span class="s_sp_v">-</span><a href="/index.php/Home/Member/logistics.html">我发出的物流</a><span class="s_sp_v">-</span>修改地址
+                <script language="javascript">
+$(function(){
+    $('.h_top').addClass('seller_h_top');
+});
+</script>			</div>
+			<h2 class="sev_h2_title">修改地址</h2>
+			<dl class="info_form_dl">
+				<dt>收货人</dt>
+				<dd>
+					<input type="text" name="shr" class="input_c inf_inc4 validate[required]" />
+				</dd>
+			</dl>
+			<dl class="info_form_dl">
+				<dt>收货人电话</dt>
+				<dd>
+					<input type="text" name="shrtel" class="input_c inf_inc4 validate[required]" />
+				</dd>
+			</dl>
+			<dl class="info_form_dl">
+				<dt>国内收货信息</dt>
+				<dd class="c_4 f14">
+					<select class="sel_f sel_f2 sel_b2" name="state2" onChange="setarea2(this.value)">
+						</select>
+					<select class="sel_f sel_f2 sel_b2" name="city2" id="shareaid2" onChange="bindsCity2(this.value)">
+						<option value=''>请选择</option>
+					</select>
+					<select class="sel_f sel_f2 sel_b2 validate[required]" id="shareaid3" name="area2">
+						<option value="">请选择</option>
+					</select>
+					<input type="text" name="shaddress" class="input_c inf_inc validate[required]" />
+				</dd>
+			</dl>
+			<div class="business_btn_d">
+				                <a href="javascript:void(0);" class="btn_jy_a btn_jy_a2" onclick="xiugai()">确认修改</a>
+				                 <a href="getLogisticsDetail.html" class="btn_jy_a btn_jy_a2">取消</a>				
+			</div>
+		<input type="hidden" name="__hash__" value="b65b17479e086beaccee3c2fac790e4c_0ddffe44577f5b5c9ed853fb9e482618" /></form>
 	</div>
 </div>
+
 <!--footer-->
 <div class="footer community_footer_dl">
 	<dl class="footer_dl">
@@ -191,13 +182,12 @@ function orderShou(_oid){
 <!--right nav-->
 <ul class="right_nav">
 	<li><a href="javascript:void(0);" class="rn_tel">客服电话</a><div class="over_show kf_tel">0731-2286-7673</div></li>
-	<li><a href="javascript:void(0);" class="rn_wx">官方微信</a><div class="over_show"></div></li>
+	<li><a href="javascript:void(0);" class="rn_wx">官方微信</a><div class="over_show"><img src="/Public/images/r_ewm.jpg" alt="" class="gw_ewm" /></div></li>
 	<li><a href="tencent://Message/?Uin=3119683838&websiteName=http://yphting.zglxkj.com=&Menu=yes" class="rn_kf">在线客服</a></li>
 	<li><a href="#" class="rn_top">Back top</a></li>
 </ul>
 <!--right nav end-->
 
-<link rel="stylesheet" href="../css/lzh/validationEngine.jquery.css" type="text/css"/>
 <script src="../js/lzh/jquery.validationEngine-zh_CN.js" type="text/javascript" charset="utf-8">
 </script>
 <script src="../js/lzh/jquery.validationEngine.js" type="text/javascript" charset="utf-8">
@@ -287,7 +277,7 @@ function chktop(){
 				<input type="hidden" name="act" value="contact" />
 				<li><a class="border_tj" href="javascript:void(0);" onclick="$('#formtopcontact').submit()" id="submit-btn">立即提交</a></li>
 			</ul>
-			<input type="hidden" name="__hash__" value="d73d959869cdfd9a37eb15a668c4150c_4136caeb1f2119d2e6eab470efcd0916" /></form>
+			<input type="hidden" name="__hash__" value="b65b17479e086beaccee3c2fac790e4c_0ddffe44577f5b5c9ed853fb9e482618" /></form>
 		</div>
 		<div class="clear"></div>
 	</div>
@@ -295,65 +285,26 @@ function chktop(){
 <!--联系我们的浮层 end-->
 
 <script src="../js/lzh/jquery.scrollto.js"></script>
-
-<script>
-
-$("#updateAdds").click(function(){
-	location.href="updateAdds.html";
-});
-
-function zhuanhuan(){
-	var fhzt=$("#fhzt").html(); 
-	if(fhzt=="1"){
-		$("#fhzt").html("待审核");
-	}else if(fhzt=="2"){
-		$("#fhzt").html("审核成功");
-	}else{
-		$("#fhzt").html("未通过");
-	}
-	var zts=$("#fhzt").html();
-	if(zts=="待审核"){
-		$("#business_order_nav_ul").html("");
-		$("#business_order_nav_ul").append("<li class='cur'><a href='javascript:void(0);'>提交发货申请</a></li><li class='cur'><a href='javascript:void(0);'>审核中</a></li><li ><a href='javascript:void(0);'>审核通过</a></li><li ><a href='javascript:void(0);'>已发国际EMS</a></li><li ><a href='javascript:void(0);'>完成发货</a></li>");
-	}else　if(zts=="审核成功"){
-		$("#business_order_nav_ul").html("");
-		$("#business_order_nav_ul").append("<li class='cur'><a href='javascript:void(0);'>提交发货申请</a></li><li ><a href='javascript:void(0);'>审核中</a></li><li class='cur'><a href='javascript:void(0);'>审核通过</a></li><li ><a href='javascript:void(0);'>已发国际EMS</a></li><li ><a href='javascript:void(0);'>完成发货</a></li>");
-	}
-	var fhfs=$("#fhfs").html();
-	if (fhfs=="1") {
-		$("#fhfs").html("上门提货");
-	}else{
-		$("#fhfs").html("自发");
-	}
-}
-init();
-	function init(){
+</body>
+<script type="text/javascript" src="../js/lzh/addLogistics.js"></script>
+<script type="text/javascript">
+	function xiugai(){
 		var orderID=sessionStorage.getItem("orderID");
-		$.ajax("/lzh/api/getlogisticsDetail/1001/"+orderID,{
-			type:"GET",
+		var collectGoods=$("[name=shr]").val();
+		var collectGoodsPhone=$("[name=shrtel]").val();
+		var state2=$("[name=state2]").val();
+		var city2=$("[name=city2]").val();
+		var area2=$("[name=area2]").val();
+		var shaddress=$("[name=shaddress]").val();
+		var collectGoodsAddr=state2+city2+area2+shaddress;
+		$.ajax({
+			url:"/lzh/api/updateCollectAdds/"+collectGoods+"/"+collectGoodsPhone+"/"+collectGoodsAddr+"/"+orderID,
+			type:"PUT",
 			dataType:"json",
 			success:function(data){
-				console.info(data);
-				$("#fhzt").html(data.auditstatus);
-				$("#fwddh").html(data.orderID);
-				$("#fhfs").html(data.delivery);
-				$("#xdsj").html(data.ordertime);
-				$("#zl").html(data.kg);
-				$("#jbje").html(data.price);
-				$("#bt").html(data.title);
-				$("#mx").html(data.describe);
-				$("#fhdz").html(data.useraddr);
-				$("#fhr").html(data.userName);
-				$("#fhdh").html(data.userphone);
-				$("#shdz").html(data.collectgoodsaddr);
-				$("#shr").html(data.collectgoods);
-				$("#shrdh").html(data.collectgoodsphone);
-				zhuanhuan();
+				alert(data.code);
 			}
 		});
-		
 	}
 </script>
-
-</body>
 </html>

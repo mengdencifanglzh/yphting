@@ -24,4 +24,6 @@ public interface logisticsDao {
 	public List<Sharea> queryKoreaArea(@Param("city") String city);
 	//发物流
 	public void addLogistics(@Param("logis")Logistics logis);
+	//修改收货信息
+	public void updateCollectAdds(@Param("collectGoods")String collectGoods,@Param("collectGoodsPhone")String collectGoodsPhone,@Param("collectGoodsAddr")String collectGoodsAddr,@Param("orderID")String orderID);
 }

@@ -44,4 +44,8 @@
 			    now(),'${logis.auditStatus}'
 		);
 	</insert>
+	<update id="updateCollectAdds">
+		UPDATE `logistics` SET `collectGoods`='${collectGoods}',`collectGoodsPhone`='${collectGoodsPhone}',
+		`collectGoodsAddr`='${collectGoodsAddr}' WHERE `orderID`='${orderID}';
+	</update>
 </mapper>

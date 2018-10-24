@@ -53,7 +53,12 @@ public class logisticsBiz {
 	public List<Sharea> getKoreaArea(String city){
 		return dao.queryKoreaArea(city);
 	}
+	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED, readOnly = false)
 	public void addLogistics(Logistics logis) {
 		dao.addLogistics(logis);
+	}
+	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED, readOnly = false)
+	public void updateCollectAdds(String collectGoods,String collectGoodsPhone,String collectGoodsAddr,String orderID) {
+		dao.updateCollectAdds(collectGoods, collectGoodsPhone, collectGoodsAddr, orderID);
 	}
 }
