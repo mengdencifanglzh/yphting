@@ -118,7 +118,6 @@ jQuery(document).ready(function(){
 
 <div class="bg_c4 pt1">
 	<div class="b_box">
-		<form method="post" target="topost" id="formmsg">
 			<div class="sv_path border_c sv_nbor">
             	                <a href="/index.php/Home/Seller/index.html">商家中心</a><span class="s_sp_v">-</span><a href="/index.php/Home/Member/logistics.html">我发出的物流</a><span class="s_sp_v">-</span>提交发货申请
                 <script language="javascript">
@@ -143,10 +142,13 @@ $(function(){
 				<dt class="mopa">上传物品图片</dt>
 				<dd>
 					<p class="c_4 pat1 dx_text letter_s">请上传物品图片, 最多5张<br />格式要求：支持.jpg .jpeg .bmp .gif .png格式照片，大小不超过5M。</p>
-					<div class="sel_file_d"><a href="javascript:void(0);" class="sel_file_a" id="uploadimage">上传文件</a></div>
-					<div id="pics"></div>
-					<div id="picss"></div>
-				</dd>
+					<form method="POST" action="/lzh/api/upload" enctype="multipart/form-data">
+						<p class="file">
+							 <input type="file" name="file" />
+							 <input type="submit" value="确认" />
+						</p>
+					</form>
+			</dd>
 			</dl>
 			<dl class="info_form_dl">
 				<dt>重量</dt>
@@ -223,7 +225,8 @@ $(function(){
 				<a href="/index.php/Home/Member/logistics.html" class="fr btna_s2">取消申请</a>
 				                <a href="javascript:void(0);" class="btn_jy_a btn_jy_a2" onclick="submitAdd()">提交发货申请，去支付</a>				
 			</div>
-		<input type="hidden" name="__hash__" value="b65b17479e086beaccee3c2fac790e4c_0ddffe44577f5b5c9ed853fb9e482618" /></form>
+		<input type="hidden" name="__hash__" value="b65b17479e086beaccee3c2fac790e4c_0ddffe44577f5b5c9ed853fb9e482618" />
+		
 	</div>
 </div>
 
@@ -305,7 +308,6 @@ function chktop(){
 		</div>
 		<div class="pcontact_right">
 			<h2 class="contact_us_title">和我们联系吧</h2>
-			<form method="post" id="formtopcontact" action="/index.php/Home/About/contact.html" target="topost" onsubmit="return chktop()">
 			<ul class="pcontact_ul3">
 				<li><span class="pcspr pcspr1"></span><input id="name" name="name" class="pop_cus_input validate[required]" placeholder="姓名" type="text"></li>
 				<li><span class="pcspr pcspr2"></span><input name="tel" id="tel" class="pop_cus_input validate[required,custom[phone]]" placeholder="电话" type="text"></li>
