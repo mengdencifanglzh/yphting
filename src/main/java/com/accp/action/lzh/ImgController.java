@@ -26,6 +26,7 @@ public class ImgController {
 	@GetMapping(value = "img/**", produces = MediaType.IMAGE_JPEG_VALUE)
 	public ResponseEntity<Resource> show(HttpServletRequest request) {
 		String img = request.getRequestURL().toString().split("/api/img/")[1];
+		System.out.println("img:"+img);
 		try {
 			return ResponseEntity.ok(resourceLoader.getResource("file:" + Upload.UPLOADED_FOLDER + img));
 		} catch (Exception e) {

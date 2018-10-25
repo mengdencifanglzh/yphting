@@ -155,7 +155,8 @@ function orderShou(_oid){
                     <p id="bt">测试111</p>
 					<p class="f12 mt5 line20" id="mx">11111</p>
 					<div class="tk_img_d2" id="wptp">
-										<img src="c7ad0e0fb72742a5a6962958601e6cf0.png" alt="" width="100" />					</div>
+					<span id="imgs"></span>					
+					</div>
                 </li>
                 <li>
                 	<p class="c_4 f12">您的发货信息</p>
@@ -348,6 +349,7 @@ init();
 				$("#shdz").html(data.collectgoodsaddr);
 				$("#shr").html(data.collectgoods);
 				$("#shrdh").html(data.collectgoodsphone);
+				$("#imgs").append("<img name='imgs' src='"+data.img1+"' alt='' width='100' />");
 				zhuanhuan();
 			}
 		});

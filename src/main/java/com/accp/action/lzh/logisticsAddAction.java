@@ -24,6 +24,6 @@ public class logisticsAddAction {
 			logis.setImg1(url);
 			biz.addLogistics(logis);
 		}
-		return "redirect:/lzh/logistics.html";
+		return "redirect:/lzh/api/ZhiFu/querydingdan?userid=1001&logisticsID="+logis.getOrderid();
 	}
 }

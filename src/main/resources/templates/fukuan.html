@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<!--<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+<meta http-equiv="cleartype" content="on">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta content="telephone=no" name="format-detection" />-->	    
+<title>韩汀社区</title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<meta name="keywords" content="御品韩汀，韩汀社区，韩汀，湖南韩汀电子商务有限公司">
+<meta name="description" content="湖南韩汀电子商务有限公司主要服务范围有海外自驾游，微整形，留学中介，翻译，学习资源，国际物流等项目，主要以大陆国人和海外同胞为服务对象。商家可入驻社区开店，用户可在平台内快速的找到自己需要的服务项目。海外商家对国内用户以及海外同胞开放服务，双方各持所需，互利互惠，是一款海外华人生活，兼职向导平台。 
+韩汀宗旨:“崇尚以人为本、客户第一的服务宗旨。热诚为广大客户提供良好的售后服务和技术支持, 保障客户的投资得到良好的回报。”
+企业口号：“韩汀—带给你看得到的未来,说不出的精彩!”。
+企业理念：”诚信为本,惠于顾客,奉于社会”
+企业目标：”建设海外一流社区平台，与广大合作伙伴与时俱进,互利互惠!”。">
+<link href="/css/lzh/owl.carousel.css" rel="stylesheet">
+<link href="/css/lzh/common.css" rel="stylesheet">
+<script src="/js/lzh/jquery-1.8.3.min.js"></script>
+<script src="/js/lzh/layer.js"></script>
+<script>
+_weburl = 'http://www.yphting.com';
+</script>
+<meta property="wb:webmaster" content="1a0bb5a2cb580b9f">
+<meta name="__hash__" content="dd50057bfee788c21fef75ff35460003_eddd3e927367f24d9bae312b076fc417">
+</head>
+<body><iframe name="topost" id="topost" style="display:none;"></iframe>
+
+
+<!--header-->
+<div class="header" id="botop">
+		<div class="h_top">
+		<div class="b_box">
+			<div class="top_nav"><a href="http://www.yphting.com/index.php?m=&amp;">首页</a><span class="ht_line"></span><a href="http://www.yphting.com/index.php?m=Home&amp;c=Member&amp;a=seller">商家入驻</a><span class="ht_line"></span><a href="http://www.yphting.com/index.php?m=Home&amp;c=About&amp;a=help">帮助中心</a><span class="ht_line"></span><a href="http://www.yphting.com/index.php?m=Home&amp;c=About&amp;a=index">关于韩汀</a><span class="ht_line"></span><a href="http://www.yphting.com/index.php?m=Home&amp;c=About&amp;a=contact">联系我们</a></div>
+			
+			<div class="top_right">
+						<a href="http://www.yphting.com/index.php?m=Home&amp;c=Member&amp;a=index">渣渣辉</a>
+						<span class="ht_line"></span><a href="http://www.yphting.com/index.php?m=Home&amp;c=Member&amp;a=logout">退出</a>
+            <span class="ht_line"></span><a href="http://www.yphting.com/index.php?m=Home&amp;c=Member&amp;a=sms"><img src="/images/lzh/e_i.png" alt=""></a>
+            <script>$('.top_right').addClass('login_right');</script>
+						<!--
+			<a href="javascript:void(0);" class="i_rover"></a>
+			-->
+			</div>
+		</div>
+	</div>
+    <div class="b_box nav_header community_header">
+		<a href="http://www.yphting.com/index.php?m=&amp;" class="logo logo_community">御品韩汀.社区</a>
+		<h1 class="header_h1">预定服务</h1>
+	</div>      
+	<div>
+	<div class="bg_c3 pt1" th:each="temp,iterState:${PAGE_INFO}" >
+	<div class="b_box" th:each="temp1,iterState:${PAGE_INFO1}" >
+	
+	<span class="pcids" style="display: none" id="logisticsID" th:text="${temp.logisticsid}"></span>
+	<span class="pcids" style="display: none" id="usermoney" th:text="${temp1.usermoney}"></span>
+	<span class="pcids" style="display: none" id="price" th:text="${temp.price}"></span>
+        <h3 class="yd_sev_h3 nopl">支付信息</h3>
+        <div class="fa_zf_part"  >
+        	<div class="fa_zf_r">需要支付<span class="jy_num" th:text="${temp.price}"></span></div>
+            现金币余额<span class="jy_num now_num" th:text="${temp1.usermoney}"></span>
+        </div>
+        <span th:if="${temp1.usermoney-temp.price<0}">
+			<div class="fa_xz">
+			<div class="fa_zf_r t_c"><a href="http://www.yphting.com/index.php?m=Home&amp;c=Member&amp;a=recharge" class="btn_jy_a f22">充值</a><br>
+			<span class="f14 c_4">您的余额不足</span></div>
+			        </div>		
+		</span>
+		<span id="zhifu" th:if="${temp1.usermoney-temp.price>=0}">
+			<div class="fa_xz">
+			<div class="fa_zf_r t_c"><a id="zf"  class="btn_jy_a f22">支付</a><br>
+			
+			        </div>	
+			        </div>		
+		</span>
+        
+	</div>
+</div>
+		 </div> 
+</div>
+<!--header end-->
+
+<a href="http://www.yphting.com/index.php?m=Home&amp;c=About&amp;a=help" class="zy_box">预定流程指引</a>
+
+
+
+<script type="text/javascript">
+
+$("#zf").live("click",function(){
+	var usermoney=$("#usermoney").html();
+	var price=$("#price").html();
+	var	logisticsID=$("#logisticsID").html();
+	if(window.confirm("确定支付吗")){
+				$.ajax("/lzh/api/zhifu?userid=1&userMoney="+usermoney+"&price="+price+"&logisticsID="+logisticsID,{
+					type:"put",
+					contentType:"application/json",
+					success:function(data1){
+						if(data1.code==200){
+							$('#payment_btn').remove();
+							$('#pop_bg').fadeIn().delay(3000).fadeOut();
+							$('.payment_suc_pop').fadeIn().delay(3000).fadeOut();
+							$("#zhifu").hide();
+							location.href="#";
+						}else{
+							alert("出现错误!")
+						}
+					}
+				})
+	}
+	    })
+ 
+
+
+
+</script>
+
+
+
+
+
+
+<!--footer-->
+<div class="footer community_footer_dl">
+	<dl class="footer_dl">
+		<dt>
+		<div class="footer_ewm_box"><img src="/images/lzh/footer_ewm.png" alt=""></div>
+			<span class="ft_ewm_name">御品韩汀</span>
+		</dt>
+		<dd>
+			<p class="flink"><a href="http://www.yphting.com/index.php?m=Home&amp;c=Member&amp;a=seller">商家入驻</a>|<a href="http://www.yphting.com/index.php?m=Home&amp;c=About&amp;a=help">帮助中心</a>|<a href="http://www.yphting.com/index.php?m=Home&amp;c=About&amp;a=index&amp;key=jobs">人才招聘</a>|<a href="http://www.yphting.com/index.php?m=Home&amp;c=About&amp;a=contact">联系我们</a>|<a href="http://www.yphting.com/index.php?m=Home&amp;c=About&amp;a=sitemap">网站地图</a>|<a href="http://www.yphting.com/index.php?m=Home&amp;c=About&amp;a=terms">使用条款</a></p>
+			<p>湘ICP备16017200号-2 | 地址：湖南省株洲市天元区丽景滨江2栋2502号 |网站负责人：夏先生 |   邮编：21917</p>
+			<p>官方QQ：3119683838 | 微信公众号：御品韩汀 | 官网邮箱：3119683838@qq.com | 联系电话：0731-2286-7673</p>
+			<p>Copyright © 2016 - 2017 yphting.com 版权所有</p>		</dd>
+	</dl>
+</div>
+<!--footer end-->
+
+<!--right nav-->
+<ul class="right_nav">
+	<li><a href="javascript:void(0);" class="rn_tel">客服电话</a><div class="over_show kf_tel">0731-282802603</div></li>
+	<li><a href="javascript:void(0);" class="rn_wx">官方微信</a><div class="over_show"><img src="/images/lzh/r_ewm.jpg" alt="" class="gw_ewm"></div></li>
+	<li><a href="tencent://Message/?Uin=3119683838&amp;websiteName=http://www.yphting.com=&amp;Menu=yes" class="rn_kf">在线客服</a></li>
+	<li><a href="#" class="rn_top">Back top</a></li>
+</ul>
+<!--right nav end-->
+
+<link rel="stylesheet" href="/css/lzh/validationEngine.jquery.css" type="text/css">
+<script src="/js/lzh/jquery.validationEngine-zh_CN.js" type="text/javascript" charset="utf-8">
+</script>
+<script src="/js/lzh/jquery.validationEngine.js" type="text/javascript" charset="utf-8">
+</script>
+<script>
+function beforeCall2(form, status){
+	showloading();
+}
+function ajaxValidationCallback2(d, form, json, options){
+	console.log(json);
+	showtip(json.msg);
+	if(json.state === 1){
+		setTimeout("location.reload()",2000);
+	}
+};
+
+jQuery(document).ready(function(){
+	// binds form submission and fields to the validation engine
+	jQuery("#formtopcontact").validationEngine({autoHidePrompt:true,autoHideDelay:1000,binded:false,promptPosition:'topLeft'
+		,ajaxFormValidation: false,ajaxFormValidationMethod: 'post',onBeforeAjaxFormValidation: beforeCall2,onAjaxFormComplete: ajaxValidationCallback2
+	});
+});
+
+function chktop(){
+	_len = $('.chk_1:checked').length;
+	if(!_len){
+		showtip('请选择加盟方式');
+		return false;
+	}
+}
+</script>
+
+<!--联系我们的浮层-->
+<div class="pop_contact">
+	<a href="javascript:void(0);" class="close_pop_contact"></a>
+	<div class="w1000">
+		<div class="pcontact_left">
+			<a href="http://www.yphting.com/index.php?m=&amp;" class="logo">御品韩汀</a>
+			<ul class="pcontact_ul">
+				<li><div class="wr_linka"><a href="http://www.yphting.com/"></a></div>公司官网：http://www.yphting.com</li>
+				<li><div class="wr_linka"><a href="http://weidian.com/?userid=765635894&amp;wfr=c"></a></div>公司微店：http://weidian.com/?userid=765635894&amp;wfr=c</li>
+			</ul>
+			<ul class="pcontact_ul2">
+				<li><span class="pcu pcu1"></span>联系方式：0731-2286-7673</li>
+				<li><span class="pcu pcu2"></span>客服电话：0731-282802603</li>
+				<li><span class="pcu pcu3"></span>住所：경기도 수원시 영통구 영통동 1021-4 청명타운텔 609호</li>
+				<li class="last"><h3 class="contact_us_h3">CONTACT US</h3>联系我们</li>
+			</ul>
+		</div>
+		<div class="pcontact_right">
+			<h2 class="contact_us_title">和我们联系吧</h2>
+			<form method="post" id="formtopcontact" action="http://www.yphting.com/index.php?m=Home&amp;c=About&amp;a=contact" target="topost" onsubmit="return chktop()">
+			<ul class="pcontact_ul3">
+				<li><span class="pcspr pcspr1"></span><input id="name" name="name" class="pop_cus_input validate[required]" placeholder="姓名" value="" type="text"></li>
+				<li><span class="pcspr pcspr2"></span><input name="tel" id="tel" class="pop_cus_input validate[required,custom[phone]]" placeholder="电话" value="" type="text"></li>
+				<li><span class="pcspr pcspr3"></span><input name="email" id="email" class="pop_cus_input validate[required,custom[email]]" placeholder="邮箱" value="" type="text"></li>
+				<li><span class="pcspr pcspr4"></span><input name="content" id="content" class="pop_cus_input validate[required]" placeholder="具体需求" value="" type="text"></li>
+				<li class="sel_work">
+					<div class="sel_work_box">
+						<span class="input-group-addon">
+							<span class="hz_icon_top">
+								<input id="title1" name="title[]" value="我要兼职" class="chk_1" type="checkbox">
+								<label for="title1"></label>
+							</span>
+						</span>
+						<span class="sel_work_text">我要兼职</span>
+					</div>
+					<div class="sel_work_box">
+						<span class="input-group-addon">
+							<span class="hz_icon_top">
+								<input id="title2" name="title[]" value="我要成为代理" class="chk_1" type="checkbox">
+								<label for="title2"></label> 
+							</span>
+						</span>
+						<span class="sel_work_text">我要成为代理</span>
+					</div>
+					<div class="sel_work_box">
+						<span class="input-group-addon">
+							<span class="hz_icon_top">
+								<input id="title3" name="title[]" value="我要咨询整形" class="chk_1" type="checkbox">
+								<label for="title3"></label> 
+							</span>
+						</span>
+						<span class="sel_work_text">我要咨询整形</span>
+					</div>
+				</li>
+				<input name="act" value="contact" type="hidden">
+				<li><a class="border_tj" href="javascript:void(0);" onclick="$('#formtopcontact').submit()" id="submit-btn">立即提交</a></li>
+			</ul>
+			<input name="__hash__" value="dd50057bfee788c21fef75ff35460003_eddd3e927367f24d9bae312b076fc417" type="hidden"></form>
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+<!--联系我们的浮层 end-->
+
+<script src="/js/lzh/jquery.scrollto.js"></script>
+<script src="/js/lzh/common.js"></script>
+
+
+<!--站内信 弹框-->
+<div id="pop_bg"></div>
+<div class="payment_suc_pop" style="height:auto;">
+	<div class="payment_suc_text" style="height:auto;">谢谢您提交物流申请，我们会尽快处理您的物流申请。</div>
+</div>
+<!--站内信 弹框 end-->
+<script>
+	
+	//支付金币成功
+	$('#payment_btn').live('click',function(){
+		showConfirm('确认要支付吗？', 'topay()');
+	});
+function topay(){
+	$.ajax({
+		data: {oid:42,t:2},
+				type:"post",
+		dataType:"json",
+		url:"/index.php?m=Home&c=Payment&a=orderpay",
+		success: function(res){
+			console.log(res);
+			closetip();
+			if(res.state==1){
+				$('#payment_btn').remove();
+				$('#pop_bg').fadeIn().delay(3000).fadeOut();
+				$('.payment_suc_pop').fadeIn().delay(3000).fadeOut();
+				setTimeout('location.href="/index.php?m=Home&c=Member&a=logistics"',1500);
+							}else{
+				showtip(res.msg);
+			}
+		}
+	});
+}
+</script>
+
+</body>
+</html>

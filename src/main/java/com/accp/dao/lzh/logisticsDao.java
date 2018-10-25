@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Param;
 
 import com.accp.pojo.Logistics;
 import com.accp.pojo.Sharea;
+import com.accp.pojo.User;
 import com.accp.vo.lzh.logisticsVO;
 
 public interface logisticsDao {
@@ -28,4 +29,9 @@ public interface logisticsDao {
 	public void updateCollectAdds(@Param("collectGoods")String collectGoods,@Param("collectGoodsPhone")String collectGoodsPhone,@Param("collectGoodsAddr")String collectGoodsAddr,@Param("orderID")String orderID);
 	//修改查询
 	public Logistics queryUpdateAdds(@Param("orderID")String orderID);
+
+	 public User queryjinbi(@Param("userid") int userid);
+	 public Logistics querydingdan(@Param("logisticsID") String logisticsID);
+	 public int updatejb (@Param("id") int id,@Param("userid") int userid);
+	 public int updatezt (@Param("logisticsID") int logisticsID);
 }

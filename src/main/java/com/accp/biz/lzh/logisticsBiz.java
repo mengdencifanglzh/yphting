@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.accp.dao.lzh.logisticsDao;
 import com.accp.pojo.Logistics;
 import com.accp.pojo.Sharea;
+import com.accp.pojo.User;
 import com.accp.vo.lzh.logisticsVO;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -64,4 +65,21 @@ public class logisticsBiz {
 	public Logistics getUpdateAdds(String orderID) {
 		return dao.queryUpdateAdds(orderID);
 	}
+	
+	 public  Logistics querydingdan(String logisticsID){
+	 	    return dao.querydingdan(logisticsID);            	    
+	   } 
+	 
+	 public  User queryjinbi(int userid){
+	 	    return dao.queryjinbi(userid);            	    
+	   } 
+	 
+	 
+	 public int  updatejb(int id,int userid){
+		 return dao.updatejb(id, userid);            	    
+		} 
+	 
+	 public int  updatezt(int logisticsID){
+		 return dao.updatezt(logisticsID);            	    
+		} 
 }

@@ -14,7 +14,7 @@ public class Upload {
 	// 文件访问前缀
 	public final static String VISIT_SUFFIX = "/api/img/";
 	// 公开网址及端口号
-	public final static String WEBSITE_SUFFIX = "http://localhost";
+	public final static String WEBSITE_SUFFIX = "http://localhost:8080";
 
 	/**
 	 * 保存文件

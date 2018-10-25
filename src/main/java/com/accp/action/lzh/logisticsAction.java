@@ -5,17 +5,20 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.accp.biz.lzh.logisticsBiz;
 import com.accp.pojo.Logistics;
 import com.accp.pojo.Sharea;
+import com.accp.pojo.User;
 import com.accp.util.file.Upload;
 import com.accp.vo.lzh.logisticsVO;
 import com.alibaba.fastjson.JSON;
@@ -73,4 +76,21 @@ public class logisticsAction {
 		return biz.getUpdateAdds(orderID);
 	}
 	
+	
+	
+
+	@RequestMapping(value = "zhifu", method = RequestMethod.PUT)
+	@ResponseBody
+	public Map<String, String> scly(int userid,int userMoney,int price,int logisticsID, Model model) {
+			HashMap<String, String> message = new HashMap<String, String>();
+			int id=	userMoney-price;
+			int update= biz.updatejb(id,userid);
+			if (update >0) {
+				message.put("code", "200");
+				 biz.updatezt(logisticsID);
+			} else {
+				message.put("code", "500");
+			}
+			return message;
+	}
 }

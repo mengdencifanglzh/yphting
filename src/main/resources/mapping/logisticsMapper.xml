@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.accp.dao.lzh.logisticsDao">
+
+<select id="querydingdan" resultType="logistics">
+ SELECT* FROM `logistics` WHERE logisticsid=#{logisticsID}
+</select>
+
+<select id="queryjinbi" resultType="user">
+ SELECT* FROM `user` WHERE userid=#{userid}
+</select>
+
+<update id="updatejb">
+UPDATE
+  `yphting`.`user`
+SET
+  `userMoney` = #{id}
+WHERE `userID` = #{userid};
+</update>
+
+<update id="updatezt">
+
+UPDATE
+  `yphting`.`logistics`
+SET
+
+  `auditStatus` = 1
+ 
+WHERE `logisticsID` = #{logisticsID};
+</update>
+</mapper>
