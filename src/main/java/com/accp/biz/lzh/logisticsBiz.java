@@ -75,7 +75,7 @@ public class logisticsBiz {
 	   } 
 	 
 	 
-	 public int  updatejb(int id,int userid){
+	 public int  updatejb(Float id,int userid){
 		 return dao.updatejb(id, userid);            	    
 		} 
 	 

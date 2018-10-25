@@ -59,8 +59,8 @@ _weburl = 'http://www.yphting.com';
 	<span class="pcids" style="display: none" id="price" th:text="${temp.price}"></span>
         <h3 class="yd_sev_h3 nopl">支付信息</h3>
         <div class="fa_zf_part"  >
-        	<div class="fa_zf_r">需要支付<span class="jy_num" th:text="${temp.price}"></span></div>
-            现金币余额<span class="jy_num now_num" th:text="${temp1.usermoney}"></span>
+        	<div class="fa_zf_r">需要支付<span class="jy_num" id="price" th:text="${temp.price}"></span></div>
+            现金币余额<span class="jy_num now_num" id="userPrice" th:text="${temp1.usermoney}"></span>
         </div>
         <span th:if="${temp1.usermoney-temp.price<0}">
 			<div class="fa_xz">
@@ -89,27 +89,20 @@ _weburl = 'http://www.yphting.com';
 <script type="text/javascript">
 
 $("#zf").live("click",function(){
-	var usermoney=$("#usermoney").html();
 	var price=$("#price").html();
-	var	logisticsID=$("#logisticsID").html();
+	var userMoney=$("#usermoney").html();
+	var logisticsID=$("#logisticsID").html();
 	if(window.confirm("确定支付吗")){
-				$.ajax("/lzh/api/zhifu?userid=1&userMoney="+usermoney+"&price="+price+"&logisticsID="+logisticsID,{
-					type:"put",
-					contentType:"application/json",
-					success:function(data1){
-						if(data1.code==200){
-							$('#payment_btn').remove();
-							$('#pop_bg').fadeIn().delay(3000).fadeOut();
-							$('.payment_suc_pop').fadeIn().delay(3000).fadeOut();
-							$("#zhifu").hide();
-							location.href="#";
-						}else{
-							alert("出现错误!")
-						}
-					}
-				})
+		$.ajax("/lzh/api/zhifu/1001/"+userMoney+"/"+price+"/"+logisticsID,{
+			type:"put",
+			dataType:"json",
+			success: function(res){
+				console.info(res);
+				alert(res.code);
+			}
+		});
 	}
-	    })
+})
  
 
 
@@ -260,22 +253,16 @@ function chktop(){
 		showConfirm('确认要支付吗？', 'topay()');
 	});
 function topay(){
-	$.ajax({
-		data: {oid:42,t:2},
-				type:"post",
+
+	var price=$("#price").html();
+	var userMoney=$("#usermoney").html();
+	var logisticsID=$("#logisticsID").html();
+	$.ajax("/lzh/api/zhifu/1001/"+userMoney+"/"+price+"/"+logisticsID,{
+		type:"put",
 		dataType:"json",
-		url:"/index.php?m=Home&c=Payment&a=orderpay",
 		success: function(res){
-			console.log(res);
-			closetip();
-			if(res.state==1){
-				$('#payment_btn').remove();
-				$('#pop_bg').fadeIn().delay(3000).fadeOut();
-				$('.payment_suc_pop').fadeIn().delay(3000).fadeOut();
-				setTimeout('location.href="/index.php?m=Home&c=Member&a=logistics"',1500);
-							}else{
-				showtip(res.msg);
-			}
+			console.info(res);
+			alert(res.code);
 		}
 	});
 }

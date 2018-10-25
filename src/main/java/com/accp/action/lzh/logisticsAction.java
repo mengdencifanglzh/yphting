@@ -79,11 +79,11 @@ public class logisticsAction {
 	
 	
 
-	@RequestMapping(value = "zhifu", method = RequestMethod.PUT)
-	@ResponseBody
-	public Map<String, String> scly(int userid,int userMoney,int price,int logisticsID, Model model) {
+	@PutMapping("zhifu/{userid}/{userMoney}/{price}/{logisticsID}")
+	public Map<String, String> scly(@PathVariable int userid,@PathVariable Float userMoney,@PathVariable Float price,@PathVariable int logisticsID) {
 			HashMap<String, String> message = new HashMap<String, String>();
-			int id=	userMoney-price;
+			System.out.println(userid);
+			Float id=	userMoney-price;
 			int update= biz.updatejb(id,userid);
 			if (update >0) {
 				message.put("code", "200");

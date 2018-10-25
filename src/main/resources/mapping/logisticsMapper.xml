@@ -4,7 +4,7 @@
 <mapper namespace="com.accp.dao.lzh.logisticsDao">
 
 <select id="querydingdan" resultType="logistics">
- SELECT* FROM `logistics` WHERE logisticsid=#{logisticsID}
+ SELECT* FROM `logistics` WHERE `orderID`=#{logisticsID}
 </select>
 
 <select id="queryjinbi" resultType="user">

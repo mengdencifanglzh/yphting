@@ -32,6 +32,6 @@ public interface logisticsDao {
 
 	 public User queryjinbi(@Param("userid") int userid);
 	 public Logistics querydingdan(@Param("logisticsID") String logisticsID);
-	 public int updatejb (@Param("id") int id,@Param("userid") int userid);
+	 public int updatejb (@Param("id") Float id,@Param("userid") int userid);
 	 public int updatezt (@Param("logisticsID") int logisticsID);
 }
