@@ -128,12 +128,24 @@ function orderShou(_oid){
 		$(".business_order_nav_ul .cur:not(':last')").removeClass('cur').addClass('pass');
 	});
 </script>
-        <div class=" business_order_box">
+        <div id="daohang" class=" business_order_box">
 			<p class="f14 mt10"><span class="c_4">物流服务状态</span><span class="big_font d_ff" id="fhzt">待审核</span>			
 			</p>
-						<p id="tishi" class="f14 c_4">
+			<p id="tishi" class="f14 c_4">
 				我们会尽快审核，请耐心等待，通过后请通过韩国物流发到我们韩国指定地址。
-							</p>												        </div>
+			</p>												        
+		</div>
+        
+        <div id="tigong" class=" business_order_box">
+			<p class="f14 mt10"><span class="c_4">物流服务状态</span><span class="big_font d_ff">待提供快递单号</span>			
+			</p>
+				<p class="f14 mt10">请发货到我们的地址：경기도 수원시 영통구 영통동 1021-4 청명타운텔 609호</p>
+				<div class="kd_box"><span class="f14">快递公司</span><input type="text" name="logisticsCompany" id="shipcompany" class="input_c inf_inc3 validate[required]"></div>
+				<div class="kd_box"><span class="f14">快递单号</span><input type="text" rel="71" name="logisticsSingleNumber" id="hydh1" class="input_c inf_inc3 validate[required]"></div>
+				<div class="my_hy_btn wl_btn_yu">
+				<a href="javascript:void(0);" onclick="tigong()" class="btn_jy_a btn_jy_a3">提交</a>
+				</div>				        
+		</div>
         
         <div class="my_booking_cont">
         	<ul class="my_booking_cont_ul">
@@ -302,21 +314,52 @@ function chktop(){
 $("#updateAdds").click(function(){
 	location.href="updateAdds.html";
 });
-
+function tigong(){
+	//公司logisticsCompany
+	//单号logisticsSingleNumber
+	var orderID=sessionStorage.getItem("orderID");
+	var logisticsCompany=$("[name=logisticsCompany]").val();//快递公司名称
+	var logisticsSingleNumber=$("[name=logisticsSingleNumber]").val();//快递单号
+	$.ajax("/lzh/api/addCompanyNum/"+logisticsCompany+"/"+logisticsSingleNumber+"/"+orderID,{
+		type:"PUT",
+		dataType:"json",
+		success:function(data){
+			if(data.code=="200"){
+				location.href='getLogisticsDetail.html';
+			}
+		}
+	});
+}
 function zhuanhuan(){
 	var fhzt=$("#fhzt").html(); 
 	var orderID=sessionStorage.getItem("orderID");
 	if(fhzt=="1"){
+		$("#tigong").hide();
 		$("#fhzt").html("待审核");
 		$("#tishi").html("我们会尽快审核，请耐心等待，通过后请通过韩国物流发到我们韩国指定地址。");
 	}else if(fhzt=="2"){
+		$("#tigong").show();
+		$("#daohang").hide();
 		$("#fhzt").html("待提供国际单号");
 		$("#tishi").html("");
 	}else if(fhzt=="3"){
+		$("#tigong").hide();
 		$("#fhzt").html("待支付");
 		$("#tishi").html("请您在24小时内支付，否则我们将取消您的订单。<a href='/lzh/api/ZhiFu/querydingdan?userid=1001&orderID="+orderID+"'>去支付</a>");
+	}else if(fhzt=="4"){
+		$("#tigong").hide();
+		$("#daohang").show();
+		$("#fhzt").html("待发货");
+		$("#tishi").html("");
+	}else if(fhzt=="5"){
+		$("#tigong").hide();
+		$("#daohang").show();
+		$("#fhzt").html("已发国际EMS");
+		$("#tishi").html("谢谢使用，我们将尽快将货物送达。");
+		$("#tishi").html("");
 	}else{
 		$("#fhzt").html("未通过");
+		$("#tigong").hide();
 		$("#tishi").html("很抱歉，您的物品不符合我们的发货范围，请查看 可发货物品清单 以了解不能发货的原因, 您的金币将会退回到您的帐户中。");
 	}
 	var zts=$("#fhzt").html();
@@ -326,6 +369,12 @@ function zhuanhuan(){
 	}else　if(zts=="待提供国际单号"){
 		$("#business_order_nav_ul").html("");
 		$("#business_order_nav_ul").append("<li class='cur'><a href='javascript:void(0);'>提交发货申请</a></li><li class='cur'><a href='javascript:void(0);'>审核中</a></li><li class='cur'><a href='javascript:void(0);'>审核通过</a></li><li ><a href='javascript:void(0);'>已发国际EMS</a></li><li ><a href='javascript:void(0);'>完成发货</a></li>");
+	}else　if(zts=="待发货"){
+		$("#business_order_nav_ul").html("");
+		$("#business_order_nav_ul").append("<li class='cur'><a href='javascript:void(0);'>提交发货申请</a></li><li class='cur'><a href='javascript:void(0);'>审核中</a></li><li class='cur'><a href='javascript:void(0);'>审核通过</a></li><li ><a href='javascript:void(0);'>已发国际EMS</a></li><li ><a href='javascript:void(0);'>完成发货</a></li>");
+	}else　if(zts=="已发国际EMS"){
+		$("#business_order_nav_ul").html("");
+		$("#business_order_nav_ul").append("<li class='cur'><a href='javascript:void(0);'>提交发货申请</a></li><li class='cur'><a href='javascript:void(0);'>审核中</a></li><li class='cur'><a href='javascript:void(0);'>审核通过</a></li><li class='cur'><a href='javascript:void(0);'>已发国际EMS</a></li><li ><a href='javascript:void(0);'>完成发货</a></li>");
 	}
 	var fhfs=$("#fhfs").html();
 	if (fhfs=="1") {

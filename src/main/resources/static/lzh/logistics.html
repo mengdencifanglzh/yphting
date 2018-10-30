@@ -327,12 +327,16 @@ init(1,2);
 					if(obj.auditStatus=="1"){
 						obj.auditStatus="待审核";
 					}else if(obj.auditStatus=="2"){
-						obj.auditStatus="审核成功";
+						obj.auditStatus="待提供快递单号";
 					}else if(obj.auditStatus=="3"){
 						obj.auditStatus="待支付";
+					}else if(obj.auditStatus=="4"){
+						obj.auditStatus="待发货";
+					}else if(obj.auditStatus=="5"){
+						obj.auditStatus="已发国际EMS";
 					}else{
 						obj.auditStatus="未通过";
-					}
+					}//1.待审核2.待提供快递单号3.待支付4.待发货5.已发国际EMS
 					var $tr="<tr><td>"+obj.orderID+"</td><td>"+obj.title+"<br>5kg</td><td>"+obj.orderTime+"</td><td>"+
 					"<span class='num_1'>"+obj.price+"</span></td><td class='fhfs'>"+obj.delivery+"</td><td class='zt'>"+obj.auditStatus+"</td><td align='center'>"+
 					"<a href='javascript:void(0);' onclick='getLogisticsDetail(\""+obj.orderID+"\")' class='btna_s2'>查看详细</a>"+

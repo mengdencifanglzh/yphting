@@ -51,4 +51,10 @@
 	<select id="queryUpdateAdds" resultType="com.accp.pojo.Logistics">
 		SELECT * FROM `logistics` WHERE `orderID`='${orderID}'
 	</select>
+	<update id="addCompanyNum">
+		UPDATE `logistics` SET `logisticsCompany` = '${logisticsCompany}',
+		 `logisticsSingleNumber` = '${logisticsSingleNumber}',
+  			`auditStatus`=4
+		WHERE `orderID` ='${orderID}';
+	</update>
 </mapper>

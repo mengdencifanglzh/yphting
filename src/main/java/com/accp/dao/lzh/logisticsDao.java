@@ -34,4 +34,5 @@ public interface logisticsDao {
 	 public Logistics querydingdan(@Param("logisticsID") String logisticsID);
 	 public int updatejb (@Param("id") Float id,@Param("userid") int userid);
 	 public int updatezt (@Param("logisticsID") int logisticsID);
+	public void addCompanyNum(@Param("logisticsCompany")String logisticsCompany,@Param("logisticsSingleNumber")String logisticsSingleNumber,@Param("orderID")String orderID);
 }

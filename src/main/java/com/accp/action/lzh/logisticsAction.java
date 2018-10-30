@@ -76,8 +76,14 @@ public class logisticsAction {
 		return biz.getUpdateAdds(orderID);
 	}
 	
-	
-	
+	@PutMapping("addCompanyNum/{logisticsCompany}/{logisticsSingleNumber}/{orderID}")
+	public Map<String, String> addCompanyNum(@PathVariable String logisticsCompany,@PathVariable String logisticsSingleNumber,@PathVariable String orderID) {
+		HashMap<String, String> message = new HashMap<String, String>();
+		biz.addCompanyNum(logisticsCompany, logisticsSingleNumber, orderID);
+		message.put("code", "200");
+		message.put("msg", "ok");
+		return message;
+	}
 
 	@PutMapping("zhifu/{userid}/{userMoney}/{price}/{logisticsID}")
 	public Map<String, String> scly(@PathVariable int userid,@PathVariable Float userMoney,@PathVariable Float price,@PathVariable int logisticsID) {

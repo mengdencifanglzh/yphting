@@ -70,7 +70,8 @@ _weburl = 'http://www.yphting.com';
 		</span>
 		<span id="zhifu" th:if="${temp1.usermoney-temp.price>=0}">
 			<div class="fa_xz">
-			<div class="fa_zf_r t_c"><a id="zf"  class="btn_jy_a f22">支付</a><br>
+			<div class="fa_zf_r t_c"><a id="zf"  class="btn_jy_a f22">支付</a>
+									 <a id="qx"  class="btn_jy_a f22">取消</a><br>
 			
 			        </div>	
 			        </div>		
@@ -87,7 +88,9 @@ _weburl = 'http://www.yphting.com';
 
 
 <script type="text/javascript">
-
+$("#qx").click(function(){
+	location.href="/lzh/logistics.html";
+});
 $("#zf").live("click",function(){
 	var price=$("#price").html();
 	var userMoney=$("#usermoney").html();

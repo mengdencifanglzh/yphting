@@ -65,7 +65,9 @@ public class logisticsBiz {
 	public Logistics getUpdateAdds(String orderID) {
 		return dao.queryUpdateAdds(orderID);
 	}
-	
+	public void addCompanyNum(String logisticsCompany,String logisticsSingleNumber,String orderID) {
+		dao.addCompanyNum(logisticsCompany, logisticsSingleNumber, orderID);
+	}
 	 public  Logistics querydingdan(String logisticsID){
 	 	    return dao.querydingdan(logisticsID);            	    
 	   } 
@@ -81,5 +83,5 @@ public class logisticsBiz {
 	 
 	 public int  updatezt(int logisticsID){
 		 return dao.updatezt(logisticsID);            	    
-		} 
+	} 
 }
