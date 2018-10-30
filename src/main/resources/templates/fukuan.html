@@ -98,8 +98,8 @@ $("#zf").live("click",function(){
 			dataType:"json",
 			success: function(res){
 				console.info(res);
-				if(res==200){
-					//这里修改状态为已支付  --待审核
+				if(res.code==200){
+					//这里已经修改状态为已支付  --待审核
 					location.href="/lzh/logistics.html";
 				}
 				

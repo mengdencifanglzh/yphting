@@ -428,10 +428,38 @@ function removepic(obj){
 <script type="text/javascript" src="../js/lzh/addLogistics.js"></script>
 <script type="text/javascript">
 	$("#submits").click(function(){
+		
 		var ran1="";
-		for (var i = 0; i < 12; i++) {
-			ran1+=parseInt(Math.random()*9);
+		var date = new Date();  //创建对象  
+		var y = date.getFullYear();    //获取年份  
+		var m = date.getMonth() + 1;   //获取月份  返回0-11  
+		var d = date.getDate(); // 获取日  
+		var h = date.getHours();  //时
+		var minute = date.getMinutes()  //分
+		var s = date.getSeconds(); //秒
+		var sss = date.getMilliseconds(); //毫秒
+		if(m < 10) {
+			m = "0" + m;
 		}
+		if(d < 10) {
+			d = "0" + d;
+		}
+		if(h < 10) {
+			h = "0" + h;
+		}
+		if(minute < 10) {
+			minute = "0" + minute;
+		}
+		if(s < 10) {
+			s = "0" + s;
+		}
+		if(sss < 10) {
+			sss = "00" + sss;
+		} else if(sss < 100) {
+			sss = "0" + sss;
+		}
+		ran1="H"+""+(y-2000)+""+m+""+d+""+h+""+minute+""+s+""+sss;
+		
 		var orderid=ran1;  //生成订单号
 		$("[name=orderid]").val(orderid);
 		

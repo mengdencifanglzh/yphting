@@ -16,8 +16,8 @@ public class logisticsZhiFuAction {
 	@Autowired
 	private logisticsBiz biz;
 	@GetMapping("querydingdan")
-	public String getList(String logisticsID,int userid, Model model) {
-		Logistics pageInfo= biz.querydingdan(logisticsID);
+	public String getList(String orderID,int userid, Model model) {
+		Logistics pageInfo= biz.querydingdan(orderID);
 		model.addAttribute("PAGE_INFO",pageInfo);
 		User pageInfo1= biz.queryjinbi(userid);
 		model.addAttribute("PAGE_INFO1",pageInfo1);

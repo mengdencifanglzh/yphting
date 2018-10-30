@@ -305,23 +305,27 @@ $("#updateAdds").click(function(){
 
 function zhuanhuan(){
 	var fhzt=$("#fhzt").html(); 
+	var orderID=sessionStorage.getItem("orderID");
 	if(fhzt=="1"){
 		$("#fhzt").html("待审核");
+		$("#tishi").html("我们会尽快审核，请耐心等待，通过后请通过韩国物流发到我们韩国指定地址。");
 	}else if(fhzt=="2"){
-		$("#fhzt").html("审核成功");
+		$("#fhzt").html("待提供国际单号");
+		$("#tishi").html("");
 	}else if(fhzt=="3"){
 		$("#fhzt").html("待支付");
-		$("#tishi").html("请您在24小时内支付，否则我们将取消订单。");
+		$("#tishi").html("请您在24小时内支付，否则我们将取消您的订单。<a href='/lzh/api/ZhiFu/querydingdan?userid=1001&orderID="+orderID+"'>去支付</a>");
 	}else{
 		$("#fhzt").html("未通过");
+		$("#tishi").html("很抱歉，您的物品不符合我们的发货范围，请查看 可发货物品清单 以了解不能发货的原因, 您的金币将会退回到您的帐户中。");
 	}
 	var zts=$("#fhzt").html();
 	if(zts=="待审核"){
 		$("#business_order_nav_ul").html("");
 		$("#business_order_nav_ul").append("<li class='cur'><a href='javascript:void(0);'>提交发货申请</a></li><li class='cur'><a href='javascript:void(0);'>审核中</a></li><li ><a href='javascript:void(0);'>审核通过</a></li><li ><a href='javascript:void(0);'>已发国际EMS</a></li><li ><a href='javascript:void(0);'>完成发货</a></li>");
-	}else　if(zts=="审核成功"){
+	}else　if(zts=="待提供国际单号"){
 		$("#business_order_nav_ul").html("");
-		$("#business_order_nav_ul").append("<li class='cur'><a href='javascript:void(0);'>提交发货申请</a></li><li ><a href='javascript:void(0);'>审核中</a></li><li class='cur'><a href='javascript:void(0);'>审核通过</a></li><li ><a href='javascript:void(0);'>已发国际EMS</a></li><li ><a href='javascript:void(0);'>完成发货</a></li>");
+		$("#business_order_nav_ul").append("<li class='cur'><a href='javascript:void(0);'>提交发货申请</a></li><li class='cur'><a href='javascript:void(0);'>审核中</a></li><li class='cur'><a href='javascript:void(0);'>审核通过</a></li><li ><a href='javascript:void(0);'>已发国际EMS</a></li><li ><a href='javascript:void(0);'>完成发货</a></li>");
 	}
 	var fhfs=$("#fhfs").html();
 	if (fhfs=="1") {

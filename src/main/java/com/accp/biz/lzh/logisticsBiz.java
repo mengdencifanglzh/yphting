@@ -71,12 +71,12 @@ public class logisticsBiz {
 	   } 
 	 
 	 public  User queryjinbi(int userid){
-	 	    return dao.queryjinbi(userid);            	    
+	 	    return dao.queryjinbi(userid);
 	   } 
 	 
 	 
 	 public int  updatejb(Float id,int userid){
-		 return dao.updatejb(id, userid);            	    
+		 return dao.updatejb(id, userid);
 		} 
 	 
 	 public int  updatezt(int logisticsID){
