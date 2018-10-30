@@ -19,8 +19,6 @@ public class logisticsAddAction {
 	public String addLogistics( MultipartFile file, Logistics logis) throws Exception{
 		if (!file.isEmpty()) {
 			String url = Upload.saveFile(file);
-		//	String src=Upload.createTimeFolder();
-			//System.out.println(src);
 			logis.setImg1(url);
 			biz.addLogistics(logis);
 		}

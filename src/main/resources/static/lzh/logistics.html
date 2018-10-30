@@ -120,7 +120,7 @@ function orderShou(_oid){
             	<li ><a href="/index.php/Home/Seller/services.html"><span class="msp2 pre_c2"></span>我发布的服务</a></li>
                 <li ><a href="/index.php/Home/Seller/auth.html"><span class="msp2 pre_c3"></span>我提交的鉴定</a></li>
                 <li ><a href="/index.php/Home/Seller/comment.html"><span class="msp2 pre_c4"></span>我收到的评价</a></li>
-                <li class="cur"><a href="/index.php/Home/Seller/logistics.html"><span class="msp2 pre_c5"></span>我发出的物流</a></li>
+                <li class="cur"><a href="logistics.html"><span class="msp2 pre_c5"></span>我发出的物流</a></li>
                 <li ><a href="/index.php/Home/Seller/refund.html"><span class="msp2 pre_c6"></span>我收到的退款<span class="sp_acon_1"></span></a></li>
                 <li ><a href="/index.php/Home/Seller/servicecats.html"><span class="msp2 pre_c3"></span>我的服务类别</a></li>
                 <li ><a href="/index.php/Home/Seller/trustservice.html"><span class="msp2 pre_c3"></span>我提交的托管</a></li>
@@ -315,6 +315,7 @@ init(1,2);
 			type:"GET",
 			dataType:"json",
 			success:function(data){
+				console.info(data.list);
 			//	alert(JSON.stringify(data.list));
 				$("#tbd").html("");
 				$.each(data.list,function(i,obj){
@@ -327,6 +328,8 @@ init(1,2);
 						obj.auditStatus="待审核";
 					}else if(obj.auditStatus=="2"){
 						obj.auditStatus="审核成功";
+					}else if(obj.auditStatus=="3"){
+						obj.auditStatus="待支付";
 					}else{
 						obj.auditStatus="未通过";
 					}
@@ -364,7 +367,7 @@ init(1,2);
 	function getLike(like,pageNum,pageSize){
 		if(like==""){
 			init(1,2);
-		}else{
+		}else{                           //session的userID
 		$.ajax("/lzh/api/getlogisticsLike/1001/"+like+"/"+pageNum+"/"+pageSize,{
 			type:"GET",dataType:"json",
 			success:function(data){

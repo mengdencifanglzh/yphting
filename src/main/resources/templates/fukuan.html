@@ -98,7 +98,11 @@ $("#zf").live("click",function(){
 			dataType:"json",
 			success: function(res){
 				console.info(res);
-				alert(res.code);
+				if(res==200){
+					//这里修改状态为已支付  --待审核
+					location.href="/lzh/logistics.html";
+				}
+				
 			}
 		});
 	}

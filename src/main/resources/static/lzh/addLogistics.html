@@ -142,7 +142,7 @@ $(function(){
 			<dl class="info_form_dl">
 				<dt class="mopa">上传物品图片</dt>
 				<dd>
-					<p class="c_4 pat1 dx_text letter_s">请上传物品图片, 最多5张<br />格式要求：支持.jpg .jpeg .bmp .gif .png格式照片，大小不超过5M。</p>
+					<p class="c_4 pat1 dx_text letter_s">请上传物品图片<br />格式要求：支持.jpg .jpeg .bmp .gif .png格式照片，大小不超过5M。</p>
 						<p class="file">
 							 <input type="file" name="file" />
 						</p>
@@ -151,7 +151,7 @@ $(function(){
 			<dl class="info_form_dl">
 				<dt>重量</dt>
 				<dd>
-					<input type="text" name="kg" onBlur="setfreight(this.value)" class="input_c inf_inc4 validate[required,min[5],custom[integer]]" /><span class="dw_sp c_4">kg</span>
+					<input type="text" id="kg" onBlur="setfreight(this.value)" class="input_c inf_inc4 validate[required,min[5],custom[integer]]" /><span class="dw_sp c_4">kg</span>
 					<p class="c_4 letter_s">请单次发货5kg以上, 即可有韩汀物流韩国EMS空运权限，如果单次30kg起我们物流上门为您发货。<br />保证2天抵达国内机场，5天内送达，最迟不过一周时间，</p>
 				</dd>
 			</dl>
@@ -228,8 +228,9 @@ $(function(){
 			<input type="hidden" value="1001" name="userid"><!-- session获取 -->
 			<input type="hidden" value="" name="orderid">
 			<input type="hidden" value="" name="delivery">
-			<input type="hidden" value="1" name="auditstatus">
+			<input type="hidden" value="3" name="auditstatus">
 			<input type="hidden" value="" name="price">
+			<input type="hidden" value="" name="kg">
 		<input type="hidden" name="__hash__" value="b65b17479e086beaccee3c2fac790e4c_0ddffe44577f5b5c9ed853fb9e482618" />
 		</form>
 	</div>
@@ -363,6 +364,7 @@ function chktop(){
 <script>
 _price = 42;
 _max = 30;
+
 function setfreight(wei){
 	_money = parseInt(wei * _price);
 	$('.num_1_s:eq(1)').html(_money);
@@ -373,6 +375,9 @@ function setfreight(wei){
 	}
 	$('#weight').html(wei);
 	$('.shiptype').html(_str);
+	if(_money==0){
+		$("#weight").html(_money);
+	}
 }
 </script>
 
@@ -427,7 +432,7 @@ function removepic(obj){
 		for (var i = 0; i < 12; i++) {
 			ran1+=parseInt(Math.random()*9);
 		}
-		var orderid=ran1;
+		var orderid=ran1;  //生成订单号
 		$("[name=orderid]").val(orderid);
 		
 		var delivery=$("#fhfs").html();//发货方式
@@ -449,7 +454,9 @@ function removepic(obj){
 		$("[name=collectgoodsaddr]").val(collectgoodsaddr);
 		
 		var price=$("#price").html();//金额
+		var kg=$("#weight").html();//重量
 		$("[name=price]").val(price);
+		$("[name=kg]").val(kg);
 		$("#form").submit();
 	});
 /*	function submitAdd(){
